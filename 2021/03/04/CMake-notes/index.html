@@ -28,7 +28,7 @@
 <meta property="og:description" content="Why “file(GLOB xxx)” is evil It will cause inconspicuous problem during teamwork.  A adds a new file and does not change CMakeLists.txt B does a git pull, and since there have been no modifications to">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-04T23:51:14.000Z">
-<meta property="article:modified_time" content="2021-03-05T08:40:57.555Z">
+<meta property="article:modified_time" content="2021-03-05T08:44:10.361Z">
 <meta property="article:author" content="Ouyang Wenwen">
 <meta property="article:tag" content="CMake">
 <meta name="twitter:card" content="summary">
@@ -191,7 +191,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-05 07:51:14 / Modified: 16:40:57" itemprop="dateCreated datePublished" datetime="2021-03-05T07:51:14+08:00">2021-03-05</time>
+              <time title="Created: 2021-03-05 07:51:14 / Modified: 16:44:10" itemprop="dateCreated datePublished" datetime="2021-03-05T07:51:14+08:00">2021-03-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,9 +222,9 @@
 </ul>
 <h3 id="About-find-package"><a href="#About-find-package" class="headerlink" title="About find_package"></a>About find_package</h3><ul>
 <li>Check local modules: cmake –help-module-list</li>
-<li>Manual for a specific module: cmake –help-module FindCUDA</li>
+<li>Manual for a specific module: cmake –help-module FindCUDA<span id="more"></span></li>
 <li>find_package(CUDA 10.1 REQUIRED)<ul>
-<li>It is no longer necessary to use this module or call <code>find_package(CUDA)</code><br>for compiling CUDA code. Instead, list <code>CUDA</code> among the languages named<br>in the top-level call to the <code>project()</code> command, or call the<br><code>enable_language()</code> command with <code>CUDA</code>.</li>
+<li>It is no longer necessary to use this module or call <code>find_package(CUDA)</code> for compiling CUDA code. Instead, list <code>CUDA</code> among the languages named in the top-level call to the <code>project()</code> command, or call the<br><code>enable_language()</code> command with <code>CUDA</code>.</li>
 <li>However, if you want to some functions defined in <code>FindCUDA</code> module like <code>cuda_select_nvcc_arch_flags(ARCH_FLAGS)</code>, you need explicitly use this module.</li>
 <li>The following code will automatically pass nvidia graphic’s compute capability to nvcc. </li>
 </ul>
