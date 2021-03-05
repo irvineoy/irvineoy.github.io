@@ -123,6 +123,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
@@ -155,6 +160,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/04/Git-Cheatsheet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ouyang Wenwen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/04/Git-Cheatsheet/" class="post-title-link" itemprop="url">Git Cheatsheet</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-05 02:37:53 / Modified: 11:12:35" itemprop="dateCreated datePublished" datetime="2021-03-05T02:37:53+08:00">2021-03-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Cheatsheet/" itemprop="url" rel="index"><span itemprop="name">Cheatsheet</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><ul>
+<li>Good git resource<ul>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs">https://git-scm.com/docs</a></li>
+</ul>
+</li>
+<li>About remote<ul>
+<li>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/xxx/xxx.git">https://github.com/xxx/xxx.git</a></li>
+<li>git remote show origin</li>
+</ul>
+</li>
+<li>Add new branch<ul>
+<li>git checkout -b branch</li>
+<li>git switch -c branch</li>
+</ul>
+</li>
+<li>Add upstream remote <ul>
+<li>git push -u origin master</li>
+<li>git branch –set-upstream-to origin/branch-name</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/04/Git-Cheatsheet/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/04/Compile-Debug-version-TensorFlow-whl-package-from-source/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -178,9 +279,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-04 13:34:45 / Modified: 21:41:55" itemprop="dateCreated datePublished" datetime="2021-03-04T13:34:45+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 13:34:45" itemprop="dateCreated datePublished" datetime="2021-03-04T13:34:45+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-05 11:12:28" itemprop="dateModified" datetime="2021-03-05T11:12:28+08:00">2021-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
             </span>
 
           
@@ -201,51 +317,20 @@
 </li>
 </ul>
 <h4 id="Docker-environment"><a href="#Docker-environment" class="headerlink" title="Docker environment"></a>Docker environment</h4><ul>
-<li><p>Docker image: tensorflow/tensorflow:2.3.0-gpu</p>
-</li>
-<li><p>ubuntu: 18.04</p>
-</li>
-<li><p>CUDA: incomplete CUDA 10.1</p>
-</li>
-<li><p>gcc: 7.5.0</p>
-</li>
-<li><p>python: 3.6.9</p>
-</li>
+<li>Docker image: tensorflow/tensorflow:2.3.0-gpu</li>
+<li>ubuntu: 18.04</li>
+<li>CUDA: incomplete CUDA 10.1</li>
+<li>gcc: 7.5.0</li>
+<li>python: 3.6.9</li>
 </ul>
-<h4 id="Compiling-and-errors："><a href="#Compiling-and-errors：" class="headerlink" title="Compiling and errors："></a>Compiling and errors：</h4><ul>
-<li><p>Firstly, git clone tensorflow 2.3.1’s cource code</p>
-</li>
-<li><p>Use deb package install cudnn7.6.5 from Nvidia website</p>
-</li>
-<li><p>在tf源码目录下执行./configure时提示缺少cublas_api.h，这是因为所用docker镜像内cuda组件不完整。<br>(NOTE: 可以考虑使用tensorflow的devel镜像。)<br>安装Nvidia官网的cuda-repo的deb包（cuda网络安装版deb包）。<br>安装完毕后，执行apt update，此时可以从apt源找到各种cuda组件包。但cublas缺少10.1版本。<br>apt安装cuda-libraries-dev-10-1,cuda-libraries-10-1，会附带安装cublas10.2版本，<br>将cuda10.2目录下的cublas相关文件拷贝到cuda10.1目录中。</p>
-</li>
-<li><p>tf源码目录中执行./configure，选择支持cuda，其他的如tensorrt等不选择。</p>
-</li>
-<li><p>使用bazelisk。尝试采用bazel的”-c dbg”编译选项。编译命令为<br>bazel build –config=cuda –strip=never -c dbg –verbose_failures –keep_going<br>//tensorflow/tools/pip_package:build_pip_package</p>
-</li>
-<li><p>有些文件bazel无法下载(llvm,aws-sdk)，可以手动下载，<br>再把bazel的下载链接替换为 file:///path/to/downloaded/file (bazel使用curl，支持file://)</p>
-</li>
-<li><p>aws-checksum在dbg模式下汇编块编译错误，修改third_party/aws/aws-checksums.bazel，添加gdb模式下的DEBUG_BUILD。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">29a30,35</span><br><span class="line">&gt;     defines &#x3D; select(&#123;</span><br><span class="line">&gt;         &quot;@org\_tensorflow&#x2F;&#x2F;tensorflow:debug&quot;: [</span><br><span class="line">&gt;             &quot;DEBUG\_BUILD&quot;</span><br><span class="line">&gt;         ],</span><br><span class="line">&gt;         &quot;&#x2F;&#x2F;conditions:default&quot;: [],</span><br><span class="line">&gt;     &#125;),</span><br></pre></td></tr></table></figure>
-<p>  <a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow/issues/37498">https://github.com/tensorflow/tensorflow/issues/37498</a> ,<br>  <a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow/pull/42743/files">https://github.com/tensorflow/tensorflow/pull/42743/files</a></p>
-</li>
-<li><p>nenv虚拟环境下安装生成的包出错： invalid command bdist_wheel，需要 pip3 install wheel 。</p>
-</li>
-<li><p>wheel包安装后，在python中import tensorflow时出错，<br>提示_pywrap_tensorflow_internal.so文件中有未定义的符号<br>_ZN10tensorflow4data12experimental19SnapshotDatasetV2Op11kReaderFuncE，<br>即tensorflow::data::experimental::SnapshotDatasetV2Op::kReaderFunc。</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p>切换到tf2.3.0版本源码(<a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow/releases/tag/v2.3.0"><br>https://github.com/tensorflow/tensorflow/releases/tag/v2.3.0
-</a>)，<br>重新尝试编译，仍然在import tensorflow时出现同样的未定义符号错误。</p>
-</li>
-<li><p>继续使用2.3.0版本源码，但放弃’-c dgb’编译模式，采用’<strong>-c opt</strong>‘，调整编译命令为<br>bazel build –config=cuda -c opt –copt -g –strip=never –keep_going –verbose_failures<br>//tensorflow/tools/pip_package:build_pip_package ，<br>同时删除aws-checksums的DEBUG_BUILD。<br>编译、安装、运行均成功。</p>
-</li>
-</ul>
-<h2 id="tensorflow的调试"><a href="#tensorflow的调试" class="headerlink" title="tensorflow的调试"></a>tensorflow的调试</h2><ul>
-<li>tensorflow has LOG messages and VLOG messages.<br>TF_CPP_MIN_LOG_LEVEL controls LOG messages.<br>It is the usual log level (INFO=0, WARNING=1, ERROR=2, etc.).<br>VLOG messages are controled by TF_CPP_MIN_VLOG_LEVEL,<br>and are actually always logged at the INFO log level.<br>It means that in any case,<br>TF_CPP_MIN_LOG_LEVEL=0 is needed to see any VLOG message.<br>TF_CPP_MIN_VLOG_LEVEL defaults to 0 and as it increases,<br>more debugging messages are logged in.<br>Consider adding the following lines before importing tensorflow:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#39;TF_CPP_MIN_LOG_LEVEL&#39;] &#x3D; &#39;0&#39;</span><br><span class="line">os.environ[&#39;TF_CPP_MIN_VLOG_LEVEL&#39;] &#x3D; &#39;3&#39;</span><br><span class="line">os.environ[&#39;TF_DUMP_GRAPH_PREFIX&#39;] &#x3D; &#39;&#x2F;tmp&#x2F;tf_dump_graph&#39;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/04/Compile-Debug-version-TensorFlow-whl-package-from-source/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -287,9 +372,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-04 13:32:48 / Modified: 21:32:57" itemprop="dateCreated datePublished" datetime="2021-03-04T13:32:48+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 13:32:48" itemprop="dateCreated datePublished" datetime="2021-03-04T13:32:48+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-05 11:12:54" itemprop="dateModified" datetime="2021-03-05T11:12:54+08:00">2021-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
             </span>
 
           
@@ -315,7 +415,14 @@
 <li><p>CMake learning resource: <a target="_blank" rel="noopener" href="https://github.com/ttroy50/cmake-examples">https://github.com/ttroy50/cmake-examples</a></p>
 </li>
 </ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/04/TensorFlow-third-party-modules/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -357,9 +464,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-04 13:29:10 / Modified: 21:29:18" itemprop="dateCreated datePublished" datetime="2021-03-04T13:29:10+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 13:29:10" itemprop="dateCreated datePublished" datetime="2021-03-04T13:29:10+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-05 11:12:47" itemprop="dateModified" datetime="2021-03-05T11:12:47+08:00">2021-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
             </span>
 
           
@@ -376,66 +498,16 @@
           <h1 id="Nvidia-HashTable-Kernel-Builder-Implementation-Details"><a href="#Nvidia-HashTable-Kernel-Builder-Implementation-Details" class="headerlink" title="Nvidia HashTable Kernel Builder Implementation Details"></a>Nvidia HashTable Kernel Builder Implementation Details</h1><ul>
 <li><p>How to save Tensor object to Nvidia HashTable and how to get scalar or vector from Op’s Tensor input?</p>
 <ul>
-<li>Here is an example to get element number of keys and get matrix from key and value.  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> int64 num_elements = (key.dims() == <span class="number">0</span>) ? <span class="number">1</span> : key.dim_size(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> int64 value_size = value_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> int64 key_size = key_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> key_matrix = key.shaped&lt;K, <span class="number">2</span>&gt;(&#123;num_elements, key_size&#125;);</span><br><span class="line"><span class="keyword">auto</span> value_matrix = value.shaped&lt;V, <span class="number">2</span>&gt;(&#123;num_elements, value_size&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DoInsert</span><span class="params">(<span class="keyword">bool</span> clear, <span class="keyword">const</span> Tensor&amp; keys, <span class="keyword">const</span> Tensor&amp; values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> key_values = keys.flat&lt;K&gt;();</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> value_values = values.flat_inner_dims&lt;V, <span class="number">2</span>&gt;();</span><br><span class="line">    int64 value_dim = value_shape_.dim_size(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">mutex_lock <span class="title">l</span><span class="params">(mu_)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int64 i = <span class="number">0</span>; i &lt; key_values.size(); ++i) &#123;</span><br><span class="line">        ValueArray value_vec;</span><br><span class="line">        <span class="keyword">for</span> (int64 j = <span class="number">0</span>; j &lt; value_dim; j++) &#123;</span><br><span class="line">            V value = value_values(i, j);</span><br><span class="line">            value_vec.push_back(value);</span><br><span class="line">        &#125;</span><br><span class="line">        gtl::InsertOrUpdate(&amp;table_, SubtleMustCopyIfIntegral(key_values(i)),</span><br><span class="line">                            value_vec);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">typename</span> TTypes&lt;T&gt;::<span class="function">Flat <span class="title">flat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> shaped&lt;T, <span class="number">1</span>&gt;(&#123;NumElements()&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">size_t</span> NDIMS&gt;</span><br><span class="line"><span class="keyword">typename</span> TTypes&lt;T, NDIMS&gt;::<span class="function">Tensor <span class="title">Tensor::shaped</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        gtl::ArraySlice&lt;int64&gt; new_sizes)</span> </span>&#123;</span><br><span class="line">    CheckTypeAndIsAligned(DataTypeToEnum&lt;T&gt;::v());</span><br><span class="line">    Eigen::<span class="built_in">array</span>&lt;Eigen::DenseIndex, NDIMS&gt; dims;</span><br><span class="line">    FillDimsAndValidateCompatibleShape(new_sizes, &amp;dims);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typename</span> TTypes&lt;T, NDIMS&gt;::Tensor(base&lt;T&gt;(), dims);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>Does it always need to transfer the TensorBuffer’s data_ to device memory?</p>
-</li>
-<li><p>TODO: Finished the SetShapeFn function of HashTable.</p>
-</li>
-<li><p>Add more function related to Nvidia multi gpu HashTable</p>
-<ul>
-<li>insert, set, get, update</li>
-<li>insert_from_cpu, dump_to_cpu, dump_to_gpu, </li>
-<li>get_size, clear, remove</li>
-</ul>
-</li>
-<li><p>Need understand LookupTableOp::Compute (core/kernels/lookup_table_op.h)</p>
-</li>
-<li><p>struct void operator()</p>
-</li>
-<li><p>core/util/gpu_kernel_helper.h for example of computing block count</p>
-</li>
-</ul>
-<h1 id="Structure-of-TensorFlow-HashTable-source-code"><a href="#Structure-of-TensorFlow-HashTable-source-code" class="headerlink" title="Structure of TensorFlow HashTable source code"></a>Structure of TensorFlow HashTable source code</h1><h3 id="core-kernels-lookup-table-op-h"><a href="#core-kernels-lookup-table-op-h" class="headerlink" title="core/kernels/lookup_table_op.h"></a>core/kernels/lookup_table_op.h</h3><ul>
-<li><p>class LookupTableOp: This class inherits from the OpKernel class and supports different table implementations specified by the ‘Container’ template. Container must be derived from LookupInterface. Container example: MutableDenseHashTable, MutableHashTableOfTensors and etc. </p>
-</li>
-<li><p>class HashTable: This class inherits from InitializableLookupTable class and wraps an flat_hash_map, where the key and value data type is specified. Once the table is marked as initialized it becomes read-only.</p>
-</li>
-</ul>
-<h3 id="core-kernels-lookup-table-op-cc"><a href="#core-kernels-lookup-table-op-cc" class="headerlink" title="core/kernels/lookup_table_op.cc"></a>core/kernels/lookup_table_op.cc</h3><ul>
-<li><p>LookupTableOpKernel: This class inherits from the OpKernel. This is a base class for kernels which take a LookupTable handle as the 0th input. This class will be inherited by operations like Remove, Insert, Find, Size, Export, Import and etc. For example:</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LookupTableOpKernel</span> :</span> <span class="keyword">public</span> OpKernel;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LookupTableFindOp</span> :</span> <span class="keyword">public</span> LookupTableOpKernel;</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;LookupTableFindV2&quot;</span>).LookupTableFindOp);</span><br></pre></td></tr></table></figure></li>
-<li><p>Here are some examples of hashtable kernel builder:</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;HashTableV2&quot;</span>), LookupTableOp&lt;lookup::HashTable&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;MutableHashTableV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfScalars&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;MutableHashTableOfTensorsV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfTensors&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="core-ops-lookup-ops-cc"><a href="#core-ops-lookup-ops-cc" class="headerlink" title="core/ops/lookup_ops.cc"></a>core/ops/lookup_ops.cc</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">REGISTER_OP(<span class="string">&quot;MutableHashTableOfTensorsV2&quot;</span>)</span><br><span class="line">  .Output(<span class="string">&quot;table_handle: resource&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;container: string = &#x27;&#x27;&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;shared_name: string = &#x27;&#x27;&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;use_node_name_sharing: bool = false&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;key_dtype: type&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;value_dtype: type&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;value_shape: shape = &#123;&#125;&quot;</span>)</span><br><span class="line">  .SetIsStateful()</span><br><span class="line">  .SetShapeFn([](InferenceContext* c) &#123;</span><br><span class="line">    PartialTensorShape value_p;</span><br><span class="line">    TF_RETURN_IF_ERROR(c-&gt;GetAttr(<span class="string">&quot;value_shape&quot;</span>, &amp;value_p));</span><br><span class="line">    ShapeHandle value_s;</span><br><span class="line">    TF_RETURN_IF_ERROR(c-&gt;MakeShapeFromPartialTensorShape(value_p, &amp;value_s));</span><br><span class="line">    <span class="keyword">return</span> MutableHashTableShape(c, <span class="comment">/*key=*/</span>c-&gt;Scalar(), <span class="comment">/*value=*/</span>value_s);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">REGISTER_OP(<span class="string">&quot;MutableHashTableV2&quot;</span>)</span><br><span class="line"></span><br><span class="line">REGISTER_OP(<span class="string">&quot;LookupTableInsertV2&quot;</span>)</span><br><span class="line">  .Input(<span class="string">&quot;table_handle: resource&quot;</span>)</span><br><span class="line">  .Input(<span class="string">&quot;keys: Tin&quot;</span>)</span><br><span class="line">  .Input(<span class="string">&quot;values: Tout&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;Tin: type&quot;</span>)</span><br><span class="line">  .Attr(<span class="string">&quot;Tout: type&quot;</span>)</span><br><span class="line">  .SetShapeFn([](InferenceContext* c) &#123;</span><br><span class="line">    ShapeHandle handle;</span><br><span class="line">    TF_RETURN_IF_ERROR(c-&gt;WithRank(c-&gt;input(<span class="number">0</span>), <span class="number">0</span>, &amp;handle));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> Validate keys and values shape.</span></span><br><span class="line">    <span class="keyword">return</span> Status::OK();</span><br><span class="line">  &#125;);</span><br><span class="line">REGISTER_OP(<span class="string">&quot;LookupTableSizeV2&quot;</span>)</span><br><span class="line">REGISTER_OP(<span class="string">&quot;LookupTableFindV2&quot;</span>)</span><br><span class="line">REGISTER_OP(<span class="string">&quot;LookupTableRemoveV2&quot;</span>)</span><br><span class="line">REGISTER_OP(<span class="string">&quot;LookupTableExportV2&quot;</span>)</span><br><span class="line">REGISTER_OP(<span class="string">&quot;LookupTableImportV2&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="core-framework-lookup-interface-h"><a href="#core-framework-lookup-interface-h" class="headerlink" title="core/framework/lookup_interface.h"></a>core/framework/lookup_interface.h</h3><ul>
-<li>class LookupInterface: public ResourceBase</li>
-<li>Function: performs batch lookups</li>
-</ul>
-<h3 id="Multi-GPU-Single-Thread-Example-cu"><a href="#Multi-GPU-Single-Thread-Example-cu" class="headerlink" title="Multi_GPU Single_Thread_Example.cu"></a>Multi_GPU Single_Thread_Example.cu</h3><ul>
-<li><p>Defination:<br>  using Table_ = nv::MultiGpuHashTable&lt;key_type, val_type, ModPolicy<key_type>&gt;;<br>  auto table = new Table_(num_gpu * len / load_factor, gpu_id, num_gpu); </p>
-</li>
-<li><p>Methods: </p>
-<ul>
-<li>Example: void insert(const KeyType* d_keys, const ValType* d_vals, size_t len, Stream_event_resource&amp; s_e_resource);</li>
-<li>insert, set, get, update</li>
-<li>insert_from_cpu, dump_to_cpu, dump_to_gpu, </li>
-<li>get_size, clear, remove</li>
-<li>stream_event_recource_create, stream_event_resource_destroy</li>
-</ul>
-</li>
-<li><p>Methods Argument:<br>  KeyType* keys<br>  ValType* vals<br>  size_t* len<br>  Stream_event_resource&amp; s_e_resource</p>
-</li>
-</ul>
-<h3 id="Nvidia-Muti-GPU-Hashtable-Class-Design"><a href="#Nvidia-Muti-GPU-Hashtable-Class-Design" class="headerlink" title="Nvidia Muti-GPU Hashtable Class Design"></a>Nvidia Muti-GPU Hashtable Class Design</h3><ul>
-<li>class name: MutableNvidiaHashTableOfScalars</li>
-<li>inherit: LookupInterface or Opkernal or Hashtable</li>
-</ul>
-
+<li><p>Here is an example to get element number of keys and get matrix from key and value.</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> int64 num_elements = (key.dims() == <span class="number">0</span>) ? <span class="number">1</span> : key.dim_size(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> int64 value_size = value_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> int64 key_size = key_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> key_matrix = key.shaped&lt;K, <span class="number">2</span>&gt;(&#123;num_elements, key_size&#125;);</span><br><span class="line"><span class="keyword">auto</span> value_matrix = value.shaped&lt;V, <span class="number">2</span>&gt;(&#123;num_elements, value_size&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DoInsert</span><span class="params">(<span class="keyword">bool</span> clear, <span class="keyword">const</span> Tensor&amp; keys, <span class="keyword">const</span> Tensor&amp; values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> key_values = keys.flat&lt;K&gt;();</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> value_values = values.flat_inner_dims&lt;V, <span class="number">2</span>&gt;();</span><br><span class="line">    int64 value_dim = value_shape_.dim_size(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">mutex_lock <span class="title">l</span><span class="params">(mu_)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int64 i = <span class="number">0</span>; i &lt; key_values.size(); ++i) &#123;</span><br><span class="line">        ValueArray value_vec;</span><br><span class="line">        <span class="keyword">for</span> (int64 j = <span class="number">0</span>; j &lt; value_dim; j++) &#123;</span><br><span class="line">            V value = value_values(i, j);</span><br><span class="line">            value_vec.push_back(value);</span><br><span class="line">        &#125;</span><br><span class="line">        gtl::InsertOrUpdate(&amp;table_, SubtleMustCopyIfIntegral(key_values(i)),</span><br><span class="line">                            value_vec);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/04/TensorFlow-HashTable-Operator-Source-note/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -485,8 +557,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 18:03:50" itemprop="dateModified" datetime="2021-03-04T18:03:50+08:00">2021-03-04</time>
+                <time title="Modified: 2021-03-05 11:11:55" itemprop="dateModified" datetime="2021-03-05T11:11:55+08:00">2021-03-05</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CUDA/" itemprop="url" rel="index"><span itemprop="name">CUDA</span></a>
+                </span>
+            </span>
 
           
 
@@ -506,20 +587,15 @@
 <li><a target="_blank" rel="noopener" href="https://leimao.github.io/blog/CUDA-Concept-Block-Grid/">Another Blog</a> which contains figures illustrating the Block and Grid.</li>
 <li>Here is an simple example of add kernel. </li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__global__</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">float</span> *x, <span class="keyword">float</span> *y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> index = blockIdx.x * blockDim.x + threadIdx.x;</span><br><span class="line">  <span class="keyword">int</span> stride = blockDim.x * gridDim.x;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; n; i += stride)</span><br><span class="line">    y[i] = x[i] + y[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><a target="_blank" rel="noopener" href="https://leimao.github.io/blog/CUDA-Stream/">CUDA Stream</a>: A stream is a sequence of commands that execute in order. Different streams execute their commands out of order with respect to one another or concurrently.</p>
-</li>
-<li><p>Unified Virtual Address Space (UVA): The location of any memory on the host allocated through CUDA, or on any of the devices which use the unified address space, can be determined from the value of the pointer using <code>cudaPointerGetAttributes()</code>.</p>
-</li>
-<li><p>Page-Locked Host Memory: <code>codaHostAlloc()</code> allocate page-locked host memory where <code>malloc()</code> malloc pageable host memory.</p>
-<ul>
-<li>Benefit: Asynchronous copy, maybe eliminate the need to copy, higher bandwidth(It’s pinned so there is no page fault, so device could fetch data without help from CPU)</li>
-</ul>
-</li>
-<li><p>Mapped Memory: A block of page-locked host memory can also be mapped into the address space of the device. Such a block could have another address in device memory that can be retrieved using cudaHostGetDevicePointer() and then used to access the block from within a kernel.</p>
-</li>
-</ul>
-
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__global__</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">float</span> *x, <span class="keyword">float</span> *y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> index = blockIdx.x * blockDim.x + threadIdx.x;</span><br><span class="line">  <span class="keyword">int</span> stride = blockDim.x * gridDim.x;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; n; i += stride)</span><br><span class="line">    y[i] = x[i] + y[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/04/CUDA-concepts/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -600,16 +676,32 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/irvineoy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;irvineoy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wenwen.ouyang@sv.cmu.edu" title="E-Mail → mailto:wenwen.ouyang@sv.cmu.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 

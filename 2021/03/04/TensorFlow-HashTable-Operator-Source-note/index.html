@@ -28,8 +28,9 @@
 <meta property="og:description" content="Nvidia HashTable Kernel Builder Implementation Details How to save Tensor object to Nvidia HashTable and how to get scalar or vector from Op’s Tensor input?  Here is an example to get element number o">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-04T05:29:10.000Z">
-<meta property="article:modified_time" content="2021-03-04T13:29:18.173Z">
+<meta property="article:modified_time" content="2021-03-05T03:12:47.842Z">
 <meta property="article:author" content="Ouyang Wenwen">
+<meta property="article:tag" content="TensorFlow">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://irvineoy.github.com/2021/03/04/TensorFlow-HashTable-Operator-Source-note/">
@@ -127,6 +128,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
@@ -182,9 +188,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-04 13:29:10 / Modified: 21:29:18" itemprop="dateCreated datePublished" datetime="2021-03-04T13:29:10+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 13:29:10" itemprop="dateCreated datePublished" datetime="2021-03-04T13:29:10+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-05 11:12:47" itemprop="dateModified" datetime="2021-03-05T11:12:47+08:00">2021-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
             </span>
 
           
@@ -201,7 +222,10 @@
         <h1 id="Nvidia-HashTable-Kernel-Builder-Implementation-Details"><a href="#Nvidia-HashTable-Kernel-Builder-Implementation-Details" class="headerlink" title="Nvidia HashTable Kernel Builder Implementation Details"></a>Nvidia HashTable Kernel Builder Implementation Details</h1><ul>
 <li><p>How to save Tensor object to Nvidia HashTable and how to get scalar or vector from Op’s Tensor input?</p>
 <ul>
-<li>Here is an example to get element number of keys and get matrix from key and value.  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> int64 num_elements = (key.dims() == <span class="number">0</span>) ? <span class="number">1</span> : key.dim_size(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> int64 value_size = value_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> int64 key_size = key_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> key_matrix = key.shaped&lt;K, <span class="number">2</span>&gt;(&#123;num_elements, key_size&#125;);</span><br><span class="line"><span class="keyword">auto</span> value_matrix = value.shaped&lt;V, <span class="number">2</span>&gt;(&#123;num_elements, value_size&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DoInsert</span><span class="params">(<span class="keyword">bool</span> clear, <span class="keyword">const</span> Tensor&amp; keys, <span class="keyword">const</span> Tensor&amp; values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> key_values = keys.flat&lt;K&gt;();</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> value_values = values.flat_inner_dims&lt;V, <span class="number">2</span>&gt;();</span><br><span class="line">    int64 value_dim = value_shape_.dim_size(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">mutex_lock <span class="title">l</span><span class="params">(mu_)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int64 i = <span class="number">0</span>; i &lt; key_values.size(); ++i) &#123;</span><br><span class="line">        ValueArray value_vec;</span><br><span class="line">        <span class="keyword">for</span> (int64 j = <span class="number">0</span>; j &lt; value_dim; j++) &#123;</span><br><span class="line">            V value = value_values(i, j);</span><br><span class="line">            value_vec.push_back(value);</span><br><span class="line">        &#125;</span><br><span class="line">        gtl::InsertOrUpdate(&amp;table_, SubtleMustCopyIfIntegral(key_values(i)),</span><br><span class="line">                            value_vec);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>Here is an example to get element number of keys and get matrix from key and value.</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> int64 num_elements = (key.dims() == <span class="number">0</span>) ? <span class="number">1</span> : key.dim_size(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> int64 value_size = value_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> int64 key_size = key_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> key_matrix = key.shaped&lt;K, <span class="number">2</span>&gt;(&#123;num_elements, key_size&#125;);</span><br><span class="line"><span class="keyword">auto</span> value_matrix = value.shaped&lt;V, <span class="number">2</span>&gt;(&#123;num_elements, value_size&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DoInsert</span><span class="params">(<span class="keyword">bool</span> clear, <span class="keyword">const</span> Tensor&amp; keys, <span class="keyword">const</span> Tensor&amp; values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> key_values = keys.flat&lt;K&gt;();</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> value_values = values.flat_inner_dims&lt;V, <span class="number">2</span>&gt;();</span><br><span class="line">    int64 value_dim = value_shape_.dim_size(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">mutex_lock <span class="title">l</span><span class="params">(mu_)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int64 i = <span class="number">0</span>; i &lt; key_values.size(); ++i) &#123;</span><br><span class="line">        ValueArray value_vec;</span><br><span class="line">        <span class="keyword">for</span> (int64 j = <span class="number">0</span>; j &lt; value_dim; j++) &#123;</span><br><span class="line">            V value = value_values(i, j);</span><br><span class="line">            value_vec.push_back(value);</span><br><span class="line">        &#125;</span><br><span class="line">        gtl::InsertOrUpdate(&amp;table_, SubtleMustCopyIfIntegral(key_values(i)),</span><br><span class="line">                            value_vec);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">typename</span> TTypes&lt;T&gt;::<span class="function">Flat <span class="title">flat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> shaped&lt;T, <span class="number">1</span>&gt;(&#123;NumElements()&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">size_t</span> NDIMS&gt;</span><br><span class="line"><span class="keyword">typename</span> TTypes&lt;T, NDIMS&gt;::<span class="function">Tensor <span class="title">Tensor::shaped</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        gtl::ArraySlice&lt;int64&gt; new_sizes)</span> </span>&#123;</span><br><span class="line">    CheckTypeAndIsAligned(DataTypeToEnum&lt;T&gt;::v());</span><br><span class="line">    Eigen::<span class="built_in">array</span>&lt;Eigen::DenseIndex, NDIMS&gt; dims;</span><br><span class="line">    FillDimsAndValidateCompatibleShape(new_sizes, &amp;dims);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typename</span> TTypes&lt;T, NDIMS&gt;::Tensor(base&lt;T&gt;(), dims);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -268,6 +292,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          </div>
 
         
 
@@ -354,16 +381,32 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/irvineoy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;irvineoy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wenwen.ouyang@sv.cmu.edu" title="E-Mail → mailto:wenwen.ouyang@sv.cmu.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 

@@ -28,8 +28,9 @@
 <meta property="og:description" content="Compile tensorflow 2.3 from source with Debug symbols Source code compiling handbook: https:&#x2F;&#x2F;www.tensorflow.org&#x2F;install&#x2F;source  bazel manual: https:&#x2F;&#x2F;docs.bazel.build&#x2F;versions&#x2F;master&#x2F;user-manual.html">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-04T05:34:45.000Z">
-<meta property="article:modified_time" content="2021-03-04T13:41:55.645Z">
+<meta property="article:modified_time" content="2021-03-05T03:12:28.714Z">
 <meta property="article:author" content="Ouyang Wenwen">
+<meta property="article:tag" content="TensorFlow">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://irvineoy.github.com/2021/03/04/Compile-Debug-version-TensorFlow-whl-package-from-source/">
@@ -127,6 +128,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
@@ -182,9 +188,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-04 13:34:45 / Modified: 21:41:55" itemprop="dateCreated datePublished" datetime="2021-03-04T13:34:45+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 13:34:45" itemprop="dateCreated datePublished" datetime="2021-03-04T13:34:45+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-05 11:12:28" itemprop="dateModified" datetime="2021-03-05T11:12:28+08:00">2021-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
             </span>
 
           
@@ -205,17 +226,14 @@
 </li>
 </ul>
 <h4 id="Docker-environment"><a href="#Docker-environment" class="headerlink" title="Docker environment"></a>Docker environment</h4><ul>
-<li><p>Docker image: tensorflow/tensorflow:2.3.0-gpu</p>
-</li>
-<li><p>ubuntu: 18.04</p>
-</li>
-<li><p>CUDA: incomplete CUDA 10.1</p>
-</li>
-<li><p>gcc: 7.5.0</p>
-</li>
-<li><p>python: 3.6.9</p>
-</li>
+<li>Docker image: tensorflow/tensorflow:2.3.0-gpu</li>
+<li>ubuntu: 18.04</li>
+<li>CUDA: incomplete CUDA 10.1</li>
+<li>gcc: 7.5.0</li>
+<li>python: 3.6.9</li>
 </ul>
+<span id="more"></span>
+
 <h4 id="Compiling-and-errors："><a href="#Compiling-and-errors：" class="headerlink" title="Compiling and errors："></a>Compiling and errors：</h4><ul>
 <li><p>Firstly, git clone tensorflow 2.3.1’s cource code</p>
 </li>
@@ -257,6 +275,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          </div>
 
         
 
@@ -267,7 +288,10 @@
     <a href="/2021/03/04/TensorFlow-third-party-modules/" rel="prev" title="TensorFlow third party modules">
       <i class="fa fa-chevron-left"></i> TensorFlow third party modules
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/04/Git-Cheatsheet/" rel="next" title="Git Cheatsheet">
+      Git Cheatsheet <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -340,16 +364,32 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/irvineoy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;irvineoy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wenwen.ouyang@sv.cmu.edu" title="E-Mail → mailto:wenwen.ouyang@sv.cmu.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
