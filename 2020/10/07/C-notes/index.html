@@ -20,14 +20,19 @@
     var CONFIG = {"hostname":"irvineoy.github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ouyang&#39;s Blog">
-<meta property="og:url" content="https://irvineoy.github.com/tags/Docker/index.html">
+  <meta name="description" content="const const int * abc: Declares that the abc is a variable pointer to a constant integer.  int const * abc: Also declares that the abc is a variable pointer to a constant integer. int * const abc: A c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ notes">
+<meta property="og:url" content="https://irvineoy.github.com/2020/10/07/C-notes/index.html">
 <meta property="og:site_name" content="Ouyang&#39;s Blog">
+<meta property="og:description" content="const const int * abc: Declares that the abc is a variable pointer to a constant integer.  int const * abc: Also declares that the abc is a variable pointer to a constant integer. int * const abc: A c">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-07T06:25:50.000Z">
+<meta property="article:modified_time" content="2021-03-09T06:46:23.432Z">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://irvineoy.github.com/tags/Docker/">
+<link rel="canonical" href="https://irvineoy.github.com/2020/10/07/C-notes/">
 
 
 <script id="page-configurations">
@@ -35,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: Docker | Ouyang's Blog</title>
+  <title>C++ notes | Ouyang's Blog</title>
   
 
 
@@ -154,51 +159,107 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Docker
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2020/10/07/C-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ notes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-07 14:25:50" itemprop="dateCreated datePublished" datetime="2020-10-07T14:25:50+08:00">2020-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-09 14:46:23" itemprop="dateModified" datetime="2021-03-09T14:46:23+08:00">2021-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Languages/" itemprop="url" rel="index"><span itemprop="name">Languages</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h2 id="const"><a href="#const" class="headerlink" title="const"></a><a target="_blank" rel="noopener" href="http://duramecho.com/ComputerInformation/WhyHowCppConst.html">const</a></h2><ul>
+<li>const int * abc: Declares that the abc is a variable pointer to a constant integer. </li>
+<li>int const * abc: Also declares that the abc is a variable pointer to a constant integer.</li>
+<li>int * const abc: A const pointer to a variable integer. Useful for storage that can be changed in value but not moved in memory.</li>
+<li>int const * const abc: A const pointer to a const integer. <h4 id="Parameter-passing"><a href="#Parameter-passing" class="headerlink" title="Parameter passing"></a>Parameter passing</h4></li>
+<li>void Subroutine(big_structure_type &amp;Parameter);</li>
+<li>Using &amp; maybe because it is going to alter the variable passed to it or might just be to save copying time and there is no way to tell which it is. </li>
+<li>In this case, we could use the following signature for the second situation: void Subroutine(big_structure_type const &amp;Parameter).<h4 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object Oriented Programming"></a>Object Oriented Programming</h4></li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Class2</span>&#123;</span> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Method1</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="keyword">int</span> MemberVariable1;&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Which will ban Method1 in Class2 from being anything which can attempt to alter any member variables in the object.</li>
+<li>Method1 could be called without having an object of Class2</li>
+</ul>
+<span id="more"></span>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-08T01:52:23+08:00"
-              content="2021-03-08">
-          03-08
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/07/Docker-notes/" itemprop="url">
-            <span itemprop="name">Docker notes</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/09/TensorFlow-third-party-modules/" rel="next" title="TensorFlow third party modules">
+      TensorFlow third party modules <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -251,6 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">1.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Parameter-passing"><span class="nav-number">1.0.1.</span> <span class="nav-text">Parameter passing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-Oriented-Programming"><span class="nav-number">1.0.2.</span> <span class="nav-text">Object Oriented Programming</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
