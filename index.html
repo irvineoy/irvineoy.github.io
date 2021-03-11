@@ -183,9 +183,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-10 06:48:30 / Modified: 14:48:45" itemprop="dateCreated datePublished" datetime="2021-03-10T06:48:30+08:00">2021-03-10</time>
+              <time title="Created: 2021-03-10 06:48:30" itemprop="dateCreated datePublished" datetime="2021-03-10T06:48:30+08:00">2021-03-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 15:19:46" itemprop="dateModified" datetime="2021-03-11T15:19:46+08:00">2021-03-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
             </span>
 
           
@@ -199,8 +214,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><ul>
-<li>npm install –package-lock-only
+          <h3 id="CI-clang-and-yapf"><a href="#CI-clang-and-yapf" class="headerlink" title="CI: clang and yapf"></a>CI: clang and yapf</h3><ul>
+<li>clang-format -style=file -i tensorflow/core/kernels/ResourceSparseApplyAdagradV2.*</li>
+<li>yapf -i --style pep8 tensorflow/python/test_abs.py</li>
+</ul>
+<h3 id="GDB-and-nm"><a href="#GDB-and-nm" class="headerlink" title="GDB and nm"></a>GDB and nm</h3><ul>
+<li>nm -D BINARY // Only show BINARY (object file, static/dynamic library, executable) dynamic section’s symbol: T/t means golbal/local symbol. U means undefined symbol.</li>
+<li>nm -Du BINARY // Only show undefined symbol</li>
+<li>c++filt // Transform symbols in so to human readable form </li>
+</ul>
+<h3 id="Performance-Monitoring-Tools"><a href="#Performance-Monitoring-Tools" class="headerlink" title="Performance Monitoring Tools"></a>Performance Monitoring Tools</h3><ul>
+<li>Program Optimization: Gprof, Perf, VTune</li>
+<li>Program Debugging: Valgrind, Sanitizers</li>
+<li>Advanced Analysis: Pin, Contech
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/09/Tools-cheatsheet/#more" rel="contents">
@@ -334,7 +360,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-09 16:39:42" itemprop="dateModified" datetime="2021-03-09T16:39:42+08:00">2021-03-09</time>
+                <time title="Modified: 2021-03-11 14:56:19" itemprop="dateModified" datetime="2021-03-11T14:56:19+08:00">2021-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
