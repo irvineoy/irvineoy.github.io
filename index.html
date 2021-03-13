@@ -160,6 +160,160 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/11/HugeCTR-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/11/HugeCTR-notes/" class="post-title-link" itemprop="url">HugeCTR notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-11 09:00:14 / Modified: 17:26:45" itemprop="dateCreated datePublished" datetime="2021-03-11T09:00:14+08:00">2021-03-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/introducing-merlin-hugectr-training-framework-dedicated-to-recommender-systems/">Introduction</a></h3><p>HugeCTR is a GPU-accelerated training framework for CTR estimation. It is open-sourced and highly optimized for performance on NVIDIA GPUs while allowing users to customize their models in JSON format.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/11/HugeCTR-notes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/10/Tensorflw-Node-and-Graph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/10/Tensorflw-Node-and-Graph/" class="post-title-link" itemprop="url">Tensorflw Node and Graph</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-11 07:50:46 / Modified: 16:52:08" itemprop="dateCreated datePublished" datetime="2021-03-11T07:50:46+08:00">2021-03-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Node-Graph-related-classes-in-tensorflow-core-framework"><a href="#Node-Graph-related-classes-in-tensorflow-core-framework" class="headerlink" title="Node/Graph related classes in tensorflow/core/framework"></a>Node/Graph related classes in tensorflow/core/framework</h3><ul>
+<li>NodeDef: located in node_def.proto<ul>
+<li>name: unique in a single graph</li>
+<li>op name: start with ‘_’ for internal use</li>
+<li>inputs: record the inputs of the node in the form of a string from which outputs of the node, the format is src_node: src_output</li>
+<li>Device: request device of this node, optional, attr, etc</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>NodeDefBuilder: located in node_def_builder.h</p>
+<ul>
+<li>This class will build a NodeDef based on OpDef</li>
+<li>NodeDef will record the input of this node from other nodes
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/10/Tensorflw-Node-and-Graph/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/09/Tools-cheatsheet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -191,7 +345,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 15:19:46" itemprop="dateModified" datetime="2021-03-11T15:19:46+08:00">2021-03-11</time>
+                <time title="Modified: 2021-03-11 15:35:00" itemprop="dateModified" datetime="2021-03-11T15:35:00+08:00">2021-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,10 +430,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-09 07:41:47 / Modified: 15:50:10" itemprop="dateCreated datePublished" datetime="2021-03-09T07:41:47+08:00">2021-03-09</time>
+              <time title="Created: 2021-03-09 07:41:47" itemprop="dateCreated datePublished" datetime="2021-03-09T07:41:47+08:00">2021-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 17:45:53" itemprop="dateModified" datetime="2021-03-11T17:45:53+08:00">2021-03-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -309,6 +469,21 @@
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shouhuxianjian/p/9817243.html">https://www.cnblogs.com/shouhuxianjian/p/9817243.html</a></li>
 <li><a target="_blank" rel="noopener" href="https://jcf94.com/">https://jcf94.com/</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/267104699/answer/379444094">https://www.zhihu.com/question/267104699/answer/379444094</a></li>
+</ul>
+<h3 id="CUDA-core"><a href="#CUDA-core" class="headerlink" title="CUDA core"></a><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-a-CUDA-core">CUDA core</a></h3><ul>
+<li><p>A pipeline that can do 32bit floating point addition, 32bit floating point multiplication, 32bit to 8bit integer operations such as shifts, adds, muls and similar operations and also generates memory requests on its SM unit to be served with data to keep constantly working on data. Also requests special function calculations and gets synchronized by SM unit for proper calculation of parallel algorithms.</p>
+</li>
+<li><p>When a CUDA kernel is running, it is cloned on all “CUDA threads” and these “CUDA threads” flow through all “CUDA pipelines”. Each pipeline is capable of up to 16-way threading. This lets all of its compute resources (integer, floatingpoint, data requests, ..) be efficiently used. When a “warp” of “CUDA threads” is eligible for issuing, it takes 32 “CUDA pipelines” to run on and gets locked onto it. This makes 32 “CUDA pipelines” work as a team, to implicitly do a lock-step iteration of CUDA kernel instructions. This happens concurrently with other “warps” too.</p>
+</li>
+<li><p>“CUDA core” is a “pipeline” which is used for “mapping” some “CUDA threads” onto them in a synchronized manner, to efficiently take on continuous computation.</p>
+</li>
+<li><p>Number of CUDA cores is only important when all a kernel do is just 32 bit multiplication and 32 bit addition. When it needs 64bit operations, then you should look at other parts such as “double precision” versions. They are generally a scarce resource in mainstream hardware. Also special function units are as scarce as 1/4 of “cores”. So if you are doing just square root calculations, you should take it into consideration. For example, Kepler architecture contains only 1/6 of the number of cores, as special function units. Latest generation GPUs generally have 1/4 ratio so they are better at that.</p>
+</li>
+<li><p>Because of architectual differencies, a CUDA core on an old architecture is not same performance as a new architecure CUDA core (pipeline). You shouldn’t compare Kepler’s cores to Volta’s cores. Volta has much more bandwidth per CUDA pipeline than what Kepler had. So, 1 GFLOPS of Volta is actually like 1.5-2.0 GFLOPS of Kepler.</p>
+</li>
+<li><p>CUDA core is not a full core, it is a pipeline. It just does requests on some other resources and responds with results. It resembles a 16-thread pentium with single core without i/o.</p>
+</li>
+<li></li>
 </ul>
 
       
@@ -420,184 +595,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/31/CMake-notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/31/CMake-notes/" class="post-title-link" itemprop="url">CMake notes</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-01 07:51:14" itemprop="dateCreated datePublished" datetime="2021-02-01T07:51:14+08:00">2021-02-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-08 10:41:41" itemprop="dateModified" datetime="2021-03-08T10:41:41+08:00">2021-03-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Languages/" itemprop="url" rel="index"><span itemprop="name">Languages</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Why-“file-GLOB-xxx-”-is-evil"><a href="#Why-“file-GLOB-xxx-”-is-evil" class="headerlink" title="Why “file(GLOB xxx)” is evil"></a>Why “file(GLOB xxx)” is evil</h3><ul>
-<li>It will cause inconspicuous problem during teamwork. </li>
-<li>A adds a new file and does not change CMakeLists.txt</li>
-<li>B does a git pull, and since there have been no modifications to the CMakeLists.txt, CMake isn’t run again and B causes linker errors when compiling.</li>
-<li>Reference: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/32411963/why-is-cmake-file-glob-evil">https://stackoverflow.com/questions/32411963/why-is-cmake-file-glob-evil</a></li>
-</ul>
-<h3 id="About-find-package"><a href="#About-find-package" class="headerlink" title="About find_package"></a>About find_package</h3><ul>
-<li>Check local modules: cmake –help-module-list</li>
-<li>Manual for a specific module: cmake –help-module FindCUDA
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/31/CMake-notes/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/24/TensorFlow-HashTable-Operator-Source-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/TensorFlow-HashTable-Operator-Source-note/" class="post-title-link" itemprop="url">TensorFlow HashTable Operator Source note</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-24 13:29:10" itemprop="dateCreated datePublished" datetime="2021-01-24T13:29:10+08:00">2021-01-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-08 10:38:50" itemprop="dateModified" datetime="2021-03-08T10:38:50+08:00">2021-03-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Nvidia-HashTable-Kernel-Builder-Implementation-Details"><a href="#Nvidia-HashTable-Kernel-Builder-Implementation-Details" class="headerlink" title="Nvidia HashTable Kernel Builder Implementation Details"></a>Nvidia HashTable Kernel Builder Implementation Details</h1><ul>
-<li><p>How to save Tensor object to Nvidia HashTable and how to get scalar or vector from Op’s Tensor input?</p>
-<ul>
-<li><p>Here is an example to get element number of keys and get matrix from key and value.</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> int64 num_elements = (key.dims() == <span class="number">0</span>) ? <span class="number">1</span> : key.dim_size(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> int64 value_size = value_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> int64 key_size = key_shape_.num_elements();</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> key_matrix = key.shaped&lt;K, <span class="number">2</span>&gt;(&#123;num_elements, key_size&#125;);</span><br><span class="line"><span class="keyword">auto</span> value_matrix = value.shaped&lt;V, <span class="number">2</span>&gt;(&#123;num_elements, value_size&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DoInsert</span><span class="params">(<span class="keyword">bool</span> clear, <span class="keyword">const</span> Tensor&amp; keys, <span class="keyword">const</span> Tensor&amp; values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> key_values = keys.flat&lt;K&gt;();</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> value_values = values.flat_inner_dims&lt;V, <span class="number">2</span>&gt;();</span><br><span class="line">    int64 value_dim = value_shape_.dim_size(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">mutex_lock <span class="title">l</span><span class="params">(mu_)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int64 i = <span class="number">0</span>; i &lt; key_values.size(); ++i) &#123;</span><br><span class="line">        ValueArray value_vec;</span><br><span class="line">        <span class="keyword">for</span> (int64 j = <span class="number">0</span>; j &lt; value_dim; j++) &#123;</span><br><span class="line">            V value = value_values(i, j);</span><br><span class="line">            value_vec.push_back(value);</span><br><span class="line">        &#125;</span><br><span class="line">        gtl::InsertOrUpdate(&amp;table_, SubtleMustCopyIfIntegral(key_values(i)),</span><br><span class="line">                            value_vec);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/TensorFlow-HashTable-Operator-Source-note/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -665,7 +666,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -678,7 +679,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
