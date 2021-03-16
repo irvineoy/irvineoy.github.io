@@ -160,6 +160,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/15/Software-Engineering/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/15/Software-Engineering/" class="post-title-link" itemprop="url">Software Engineering</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-15 11:00:21 / Modified: 20:13:39" itemprop="dateCreated datePublished" datetime="2021-03-15T11:00:21+08:00">2021-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><ul>
+<li>Testing is a whole-team responsibility</li>
+<li>Different roles and different testings:<ul>
+<li>Developers: unit, integration, system, acceptance</li>
+<li>Disigners: integration</li>
+<li>Customers: acceptance</li>
+<li>Analysts: acceptance</li>
+<li>Test engineers and QA team: system, acceptance, exploratory</li>
+<li>End Users: beta</li>
+<li>Architects: integration, system</li>
+</ul>
+</li>
+<li>Varification: Software is right; Validation: We build the right software.</li>
+<li>Fault (Also called defect, testing is aim to reveal this) -&gt; Error -&gt; Failure (Test will cause this)
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/15/Software-Engineering/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/11/HugeCTR-notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -508,101 +596,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/07/Docker-notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/07/Docker-notes/" class="post-title-link" itemprop="url">Docker notes</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-08 01:52:23" itemprop="dateCreated datePublished" datetime="2021-03-08T01:52:23+08:00">2021-03-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 14:56:19" itemprop="dateModified" datetime="2021-03-11T14:56:19+08:00">2021-03-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Run-and-exec"><a href="#Run-and-exec" class="headerlink" title="Run and exec"></a>Run and exec</h3><ul>
-<li>docker run --ipc=host --gpus all --entrypoint=/bin/bash -it -d -v /home/name:/home/name -e TZ=Asia/Beijing --name ouyang tensorflow/tensorflow:2.4.1-gpu</li>
-<li>run flags:<ul>
-<li>--pid=host: Use it if you want your container to share the host’s process namespace, basically allowing processes within the container to see all of the processes on the system.</li>
-<li>--ipc=private|shareable|host|container:name-or-id: IPC namespace provides separation of named shared memory segments, semaphores and message queues. Shared memory segments is commenly used by databases and C/OpenMPI, C++/using boost libraries and etc.</li>
-</ul>
-</li>
-<li>docker exec -it ${container_name} /bin/bash</li>
-<li>docker exec -it -w /home/name ouyang sh -c “tmux a” /bin/bash</li>
-</ul>
-<h3 id="System"><a href="#System" class="headerlink" title="System"></a>System</h3><ul>
-<li>docker system df</li>
-<li>docker system df -v</li>
-<li>sudo service docker start/stop</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/07/Docker-notes/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -674,20 +667,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
