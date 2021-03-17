@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"irvineoy.github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="CI: clang and yapf clang-format -style&#x3D;file -i tensorflow&#x2F;core&#x2F;kernels&#x2F;ResourceSparseApplyAdagradV2.* yapf -i --style pep8 tensorflow&#x2F;python&#x2F;test_abs.py  GDB and nm nm -D BINARY &#x2F;&#x2F; Only show BINARY (o">
+  <meta name="description" content="CI: clang and yapf clang-format -style&#x3D;file -i tensorflow&#x2F;core&#x2F;kernels&#x2F;ResourceSparseApplyAdagradV2.* yapf -i --style pep8 tensorflow&#x2F;python&#x2F;test_abs.py cpplint --linelength&#x3D;80 --counting&#x3D;detailed --f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tools cheatsheet">
 <meta property="og:url" content="https://irvineoy.github.com/2021/03/09/Tools-cheatsheet/index.html">
 <meta property="og:site_name" content="Ouyang&#39;s Blog">
-<meta property="og:description" content="CI: clang and yapf clang-format -style&#x3D;file -i tensorflow&#x2F;core&#x2F;kernels&#x2F;ResourceSparseApplyAdagradV2.* yapf -i --style pep8 tensorflow&#x2F;python&#x2F;test_abs.py  GDB and nm nm -D BINARY &#x2F;&#x2F; Only show BINARY (o">
+<meta property="og:description" content="CI: clang and yapf clang-format -style&#x3D;file -i tensorflow&#x2F;core&#x2F;kernels&#x2F;ResourceSparseApplyAdagradV2.* yapf -i --style pep8 tensorflow&#x2F;python&#x2F;test_abs.py cpplint --linelength&#x3D;80 --counting&#x3D;detailed --f">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-09T22:48:30.000Z">
-<meta property="article:modified_time" content="2021-03-11T07:35:00.279Z">
+<meta property="article:modified_time" content="2021-03-16T08:44:10.519Z">
 <meta property="article:tag" content="Cheatsheet">
 <meta name="twitter:card" content="summary">
 
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 15:35:00" itemprop="dateModified" datetime="2021-03-11T15:35:00+08:00">2021-03-11</time>
+                <time title="Modified: 2021-03-16 16:44:10" itemprop="dateModified" datetime="2021-03-16T16:44:10+08:00">2021-03-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,6 +222,8 @@
         <h3 id="CI-clang-and-yapf"><a href="#CI-clang-and-yapf" class="headerlink" title="CI: clang and yapf"></a>CI: clang and yapf</h3><ul>
 <li>clang-format -style=file -i tensorflow/core/kernels/ResourceSparseApplyAdagradV2.*</li>
 <li>yapf -i --style pep8 tensorflow/python/test_abs.py</li>
+<li>cpplint --linelength=80 --counting=detailed --filter=-build/namespaces --root=src $(find src/pytorch_ops -name “<em>.h” -or -name “</em>.cc”)</li>
+<li>cpplint --linelength=80 --counting=detailed --root=src $(find src -path “src/pytorch_ops” -prune -name “<em>.h” -or -name “</em>.cc”)</li>
 </ul>
 <h3 id="GDB-and-nm"><a href="#GDB-and-nm" class="headerlink" title="GDB and nm"></a>GDB and nm</h3><ul>
 <li>nm -D BINARY // Only show BINARY (object file, static/dynamic library, executable) dynamic section’s symbol: T/t means golbal/local symbol. U means undefined symbol.</li>
@@ -241,7 +243,7 @@
 <li>tar -xvf etc.tar</li>
 <li>CRLF: dos2unix &lt; myfile.txt | cmp - myfile.txt</li>
 <li>find . -name “*.so” -exec nm {} ; | c++filt | grep Dense</li>
-<li>scp -r <a href="mailto:&#117;&#115;&#101;&#114;&#x6e;&#97;&#x6d;&#101;&#x40;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#x2e;&#x33;&#46;&#51;&#51;">&#117;&#115;&#101;&#114;&#x6e;&#97;&#x6d;&#101;&#x40;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#x2e;&#x33;&#46;&#51;&#51;</a>:c:/Users/username/thisComputer/project ./project</li>
+<li>scp -r <a href="mailto:&#x75;&#115;&#x65;&#x72;&#110;&#x61;&#x6d;&#x65;&#64;&#49;&#57;&#50;&#46;&#49;&#x36;&#56;&#46;&#51;&#46;&#51;&#x33;">&#x75;&#115;&#x65;&#x72;&#110;&#x61;&#x6d;&#x65;&#64;&#49;&#57;&#50;&#46;&#49;&#x36;&#56;&#46;&#51;&#46;&#51;&#x33;</a>:c:/Users/username/thisComputer/project ./project</li>
 <li>ln -s {source file} {distination file}<h3 id="bazel"><a href="#bazel" class="headerlink" title="bazel"></a>bazel</h3></li>
 <li>sudo apt update &amp;&amp; sudo apt install graphviz xdot</li>
 <li>xdot &lt;(bazel query –notool_deps –noimplicit_deps “deps(//main:hello-world)”</li>
@@ -296,6 +298,10 @@
 <li>or add the following lines to ~/.pip/pip.conf</li>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure></li>
 <li>Python<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dir(instance)</span><br><span class="line">instance.__dir__()</span><br><span class="line">instance.__dict__</span><br><span class="line"></span><br><span class="line">import tensorflow as tf</span><br><span class="line">tf.sysconfig.get_include()</span><br><span class="line">&#39;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.6&#x2F;site-packages&#x2F;tensorflow&#x2F;include&#39;</span><br><span class="line">tf.sysconfig.get_lib()</span><br><span class="line">&#39;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.6&#x2F;site-packages&#x2F;tensorflow&#39;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h3><ul>
+<li>set -e: If there is an error when executing a command, then exit immediately.</li>
+<li>set -x: Show the command and args before executing the command. For debug purpose.</li>
 </ul>
 <h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><ul>
 <li>npm install –package-lock-only</li>
@@ -394,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CI-clang-and-yapf"><span class="nav-number">1.</span> <span class="nav-text">CI: clang and yapf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GDB-and-nm"><span class="nav-number">2.</span> <span class="nav-text">GDB and nm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-Monitoring-Tools"><span class="nav-number">3.</span> <span class="nav-text">Performance Monitoring Tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">4.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bazel"><span class="nav-number">5.</span> <span class="nav-text">bazel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tmux"><span class="nav-number">6.</span> <span class="nav-text">Tmux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PIP-and-Python-site-packages"><span class="nav-number">7.</span> <span class="nav-text">PIP and Python site-packages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NPM"><span class="nav-number">8.</span> <span class="nav-text">NPM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-Container-Init-Example"><span class="nav-number">9.</span> <span class="nav-text">Ubuntu Container Init Example</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CI-clang-and-yapf"><span class="nav-number">1.</span> <span class="nav-text">CI: clang and yapf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GDB-and-nm"><span class="nav-number">2.</span> <span class="nav-text">GDB and nm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-Monitoring-Tools"><span class="nav-number">3.</span> <span class="nav-text">Performance Monitoring Tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">4.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bazel"><span class="nav-number">5.</span> <span class="nav-text">bazel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tmux"><span class="nav-number">6.</span> <span class="nav-text">Tmux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PIP-and-Python-site-packages"><span class="nav-number">7.</span> <span class="nav-text">PIP and Python site-packages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell"><span class="nav-number">8.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NPM"><span class="nav-number">9.</span> <span class="nav-text">NPM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-Container-Init-Example"><span class="nav-number">10.</span> <span class="nav-text">Ubuntu Container Init Example</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

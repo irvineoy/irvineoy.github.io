@@ -28,7 +28,7 @@
 <meta property="og:description" content="Run and exec docker run --ipc&#x3D;host --gpus all --entrypoint&#x3D;&#x2F;bin&#x2F;bash -it -d -v &#x2F;home&#x2F;name:&#x2F;home&#x2F;name -e TZ&#x3D;Asia&#x2F;Beijing --name ouyang tensorflow&#x2F;tensorflow:2.4.1-gpu run flags: --pid&#x3D;host: Use it if y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-07T17:52:23.000Z">
-<meta property="article:modified_time" content="2021-03-11T06:56:19.869Z">
+<meta property="article:modified_time" content="2021-03-16T07:41:41.250Z">
 <meta property="article:tag" content="Cheatsheet">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 14:56:19" itemprop="dateModified" datetime="2021-03-11T14:56:19+08:00">2021-03-11</time>
+                <time title="Modified: 2021-03-16 15:41:41" itemprop="dateModified" datetime="2021-03-16T15:41:41+08:00">2021-03-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,6 +253,15 @@
 <li>In this case, DockerfileNvidia is a Dockerfile script but it’s not named Dockerfile.</li>
 <li>The period means the context is under current working directory.</li>
 <li>--network host: Could be used for proxy purpose.</li>
+</ul>
+</li>
+<li>Specifying target build stage (–target)<ul>
+<li>When building a Dockerfile with multiple build stages, –target can be used to specify an intermediate build stage by name as a final stage for the resulting image. Commands after the target stage will be skipped.<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> debian AS build-<span class="keyword">env</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">FROM</span> alpine AS production-<span class="keyword">env</span></span><br><span class="line">... </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t mybuildimage --target build-env .</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Set build-time variables (–build-arg)<ul>
+<li>docker build –build-arg HTTP_PROXY=<a target="_blank" rel="noopener" href="http://10.20.30.2:1234/">http://10.20.30.2:1234</a> –build-arg FTP_PROXY=<a target="_blank" rel="noopener" href="http://40.50.60.5:4567/">http://40.50.60.5:4567</a> .</li>
 </ul>
 </li>
 </ul>

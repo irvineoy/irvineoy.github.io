@@ -441,7 +441,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 15:35:00" itemprop="dateModified" datetime="2021-03-11T15:35:00+08:00">2021-03-11</time>
+                <time title="Modified: 2021-03-16 16:44:10" itemprop="dateModified" datetime="2021-03-16T16:44:10+08:00">2021-03-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -467,6 +467,8 @@
           <h3 id="CI-clang-and-yapf"><a href="#CI-clang-and-yapf" class="headerlink" title="CI: clang and yapf"></a>CI: clang and yapf</h3><ul>
 <li>clang-format -style=file -i tensorflow/core/kernels/ResourceSparseApplyAdagradV2.*</li>
 <li>yapf -i --style pep8 tensorflow/python/test_abs.py</li>
+<li>cpplint --linelength=80 --counting=detailed --filter=-build/namespaces --root=src $(find src/pytorch_ops -name “<em>.h” -or -name “</em>.cc”)</li>
+<li>cpplint --linelength=80 --counting=detailed --root=src $(find src -path “src/pytorch_ops” -prune -name “<em>.h” -or -name “</em>.cc”)</li>
 </ul>
 <h3 id="GDB-and-nm"><a href="#GDB-and-nm" class="headerlink" title="GDB and nm"></a>GDB and nm</h3><ul>
 <li>nm -D BINARY // Only show BINARY (object file, static/dynamic library, executable) dynamic section’s symbol: T/t means golbal/local symbol. U means undefined symbol.</li>
