@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://developer-blogs.nvidia.com/wp-content/uploads/2020/07/deep-learning-ctr-model-1-768x450.png">
 <meta property="og:image" content="https://developer-blogs.nvidia.com/wp-content/uploads/2020/07/multi-slot-embedding-in-hugectr-768x351.png">
 <meta property="article:published_time" content="2021-03-11T01:00:14.000Z">
-<meta property="article:modified_time" content="2021-03-15T09:29:03.604Z">
+<meta property="article:modified_time" content="2021-03-17T11:12:01.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://developer-blogs.nvidia.com/wp-content/uploads/2020/07/deep-learning-ctr-model-1-768x450.png">
 
@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-15 17:29:03" itemprop="dateModified" datetime="2021-03-15T17:29:03+08:00">2021-03-15</time>
+                <time title="Modified: 2021-03-17 19:12:01" itemprop="dateModified" datetime="2021-03-17T19:12:01+08:00">2021-03-17</time>
               </span>
 
           
@@ -217,6 +217,49 @@
 <li>It explicitly prevents users from developing their model in a way that isn’t optimal, constraining to optimal layer width and memory sizes in order to achieve significant performance benefits.<span id="more"></span></li>
 <li><img src="https://developer-blogs.nvidia.com/wp-content/uploads/2020/07/deep-learning-ctr-model-1-768x450.png" alt="(a) A DL-based CTR model. (b) HugeCTR architecture."></li>
 <li> <strong>HugeCTR is also a reference design for framework developers who want to port their CPU solutions to GPU or optimize their current GPU solutions.</strong></li>
+</ul>
+<h3 id="Basic-element"><a href="#Basic-element" class="headerlink" title="Basic element"></a>Basic element</h3><ul>
+<li><p>tensor2.hpp::Class Tensor2</p>
+<ul>
+<li>It has three data members:<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">size_t</span>&gt; dimensions_;</span><br><span class="line"><span class="keyword">size_t</span> num_elements_;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;TensorBuffer2&gt; buffer_;</span><br></pre></td></tr></table></figure></li>
+<li>It could be initialized with empty parameter and in this case, it will not alloc memory.</li>
+<li>Shrink() method could shrink this current Tensor2 object to a TensorBag2 object. TensorBag2 object could also be transform to Tensor2 object by calling stretch_from(const TensorBag2 &amp;bag)</li>
+<li></li>
+</ul>
+</li>
+<li><p>embedding.hpp::Struct BufferBag</p>
+<ul>
+<li>It only has three members<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TensorBag2 keys;</span><br><span class="line">TensorBag2 slot_id;</span><br><span class="line">Tensor2&lt;<span class="keyword">float</span>&gt; embedding;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>embedding.hpp::Struct SparseEmbeddingHsahParams</p>
+<ul>
+<li>It include params of batch size, vocabulary size, slot size array, embedding vec size, max feature num, slot number, optimizer params and etc.</li>
+</ul>
+</li>
+<li><p>resource_manager.hpp::Class ResourceManager</p>
+<ul>
+<li>It is a GPU resource container in one node. An instance includes: GPU resource vector, thread pool for training, nccl communicators.</li>
+<li>It has key data members of device_map_, cpu_resource_, gpu_resource_, device_memory_resource</li>
+<li>Here are some device_map_related methods: <ul>
+<li>const std::vector&lt;int&gt;&amp; get_local_gpu_device_id_list() const</li>
+<li>int get_process_id_from_gpu_global_id(size_t global_gpu_id) const</li>
+<li>size_t get_gpu_local_id_from_global_id(size_t global_gpu_id) const // sequential GPU indices</li>
+<li>size_t get_gpu_global_id_from_local_id(size_t local_gpu_id) const // sequential GPU indices</li>
+</ul>
+</li>
+<li>device_memory_resource related method:<ul>
+<li>const std::shared_ptr&lt;rmm::mr::device_memory_resource&gt;&amp; get_device_rmm_device_memory_resource(int local_gpu_id) const</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>embedding.hpp::Class IEmbedding</p>
+<ul>
+<li>It is an interface of Embedding classes. It could load parameters from std file stream or BufferBag object.</li>
+<li></li>
+</ul>
+</li>
 </ul>
 <h3 id="Multi-slot-embedding-with-in-memory-GPU-hash-table"><a href="#Multi-slot-embedding-with-in-memory-GPU-hash-table" class="headerlink" title="Multi-slot embedding with in-memory GPU hash table"></a>Multi-slot embedding with in-memory GPU hash table</h3><ul>
 <li>The hash table is distributed across multiple GPUs.</li>
@@ -317,7 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-slot-embedding-with-in-memory-GPU-hash-table"><span class="nav-number">2.</span> <span class="nav-text">Multi-slot embedding with in-memory GPU hash table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataReader"><span class="nav-number">3.</span> <span class="nav-text">DataReader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-element"><span class="nav-number">2.</span> <span class="nav-text">Basic element</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-slot-embedding-with-in-memory-GPU-hash-table"><span class="nav-number">3.</span> <span class="nav-text">Multi-slot embedding with in-memory GPU hash table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataReader"><span class="nav-number">4.</span> <span class="nav-text">DataReader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
