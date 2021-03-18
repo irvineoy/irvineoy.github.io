@@ -20,13 +20,15 @@
     var CONFIG = {"hostname":"irvineoy.github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="Tensorflow Op Register Firstly, Mutable Hashtable should be registered as an TensorFlow Op.  This Op will output a table_handle   12345678910111213REGISTER_OP(&quot;CUDAMutableHashTableV2&quot;)    .O">
+<meta property="og:type" content="article">
 <meta property="og:title" content="GPU HashTable as a custom op for TensorFlow">
 <meta property="og:url" content="https://irvineoy.github.com/2021/03/18/GPU-HashTable-as-a-custom-op-for-TensorFlow/index.html">
 <meta property="og:site_name" content="Ouyang&#39;s Blog">
+<meta property="og:description" content="Tensorflow Op Register Firstly, Mutable Hashtable should be registered as an TensorFlow Op.  This Op will output a table_handle   12345678910111213REGISTER_OP(&quot;CUDAMutableHashTableV2&quot;)    .O">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-18T05:01:51.000Z">
-<meta property="article:modified_time" content="2021-03-18T13:06:19.575Z">
+<meta property="article:modified_time" content="2021-03-18T13:37:31.185Z">
 <meta property="article:tag" content="CUDA">
 <meta property="article:tag" content="TensorFlow">
 <meta property="article:tag" content="HashTable">
@@ -190,7 +192,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-18 13:01:51 / Modified: 21:06:19" itemprop="dateCreated datePublished" datetime="2021-03-18T13:01:51+08:00">2021-03-18</time>
+              <time title="Created: 2021-03-18 13:01:51 / Modified: 21:37:31" itemprop="dateCreated datePublished" datetime="2021-03-18T13:01:51+08:00">2021-03-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -213,7 +215,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id=""><a href="#" class="headerlink" title=""></a></h3><span id="more"></span>
+        <h2 id="Tensorflow-Op-Register"><a href="#Tensorflow-Op-Register" class="headerlink" title="Tensorflow Op Register"></a>Tensorflow Op Register</h2><ul>
+<li><p>Firstly, Mutable Hashtable should be registered as an TensorFlow Op.</p>
+</li>
+<li><p>This Op will output a <code>table_handle</code></p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">REGISTER_OP(<span class="string">&quot;CUDAMutableHashTableV2&quot;</span>)</span><br><span class="line">    .Output(<span class="string">&quot;table_handle: resource&quot;</span>)</span><br><span class="line">    .Attr(<span class="string">&quot;container: string = &#x27;&#x27;&quot;</span>)</span><br><span class="line">    .Attr(<span class="string">&quot;shared_name: string = &#x27;&#x27;&quot;</span>)</span><br><span class="line">    .Attr(<span class="string">&quot;use_node_name_sharing: bool = false&quot;</span>)</span><br><span class="line">    .Attr(<span class="string">&quot;total_buckets: int = 131072&quot;</span>)  <span class="comment">// 2^17</span></span><br><span class="line">    .Attr(<span class="string">&quot;key_dtype: type&quot;</span>)</span><br><span class="line">    .Attr(<span class="string">&quot;value_dtype: type&quot;</span>)</span><br><span class="line">    .SetIsStateful()</span><br><span class="line">    .SetShapeFn([](InferenceContext* c) &#123;</span><br><span class="line">    <span class="keyword">return</span> MutableHashTableShape(c, <span class="comment">/*key=*/</span>c-&gt;Scalar(),</span><br><span class="line">                                <span class="comment">/*value=*/</span>c-&gt;Scalar());</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>According to TensorFlow CPU HashTable’s style, the following HashTable operations could be registered:</p>
+<ul>
+<li>LookupTableFind</li>
+<li>LookupTableInsert</li>
+<li>LookupTableSize</li>
+<li>LookupTableExport</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h2 id="GPU-Context"><a href="#GPU-Context" class="headerlink" title="GPU Context"></a>GPU Context</h2><ul>
+<li>Based on Dependency Injection design pattern, GPU memory related operation could be encapsulated in a class and as a member of HashTable class.</li>
+<li>For example, it could have a cudaStream_t member, and Alloc(), Free(), MemcpyD2H() and MemcpyH2D() methods.<h3 id="GPU-Context-in-Tensorflow"><a href="#GPU-Context-in-Tensorflow" class="headerlink" title="GPU Context in Tensorflow"></a>GPU Context in Tensorflow</h3></li>
+<li>Tensorflow has it’s own module to handle GPU related resource, which is <strong>StreamExecutor</strong>.</li>
+<li>You could get <strong>se::Stream</strong> object by using <code>(OpKernelContext*) ctx -&gt; op_device_context()-&gt;stream()</code></li>
+<li>Alloc should use ctx-&gt;allocate_persistent() function. In this case, those memory will be managed by OpKernelContext, thus there is no need to free.</li>
+<li>For memory copy, you could use <code>se::DeviceMemorBase()</code> to get a gpu pointer. Then use <code>(se::Stream*) stream_-&gt;ThenMemcpy</code> to transfer data between CPU memory and GPU memory.</li>
+<li>Get cudaStream_t will be a little bit harder. (TBD)</li>
+</ul>
+
     </div>
 
     
@@ -233,8 +259,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/17/Javascript-notes/" rel="prev" title="Javascript notes">
-      <i class="fa fa-chevron-left"></i> Javascript notes
+    <a href="/2021/03/11/HugeCTR-notes/" rel="prev" title="HugeCTR notes">
+      <i class="fa fa-chevron-left"></i> HugeCTR notes
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -295,7 +321,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tensorflow-Op-Register"><span class="nav-number">1.</span> <span class="nav-text">Tensorflow Op Register</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU-Context"><span class="nav-number">2.</span> <span class="nav-text">GPU Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GPU-Context-in-Tensorflow"><span class="nav-number">2.1.</span> <span class="nav-text">GPU Context in Tensorflow</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
