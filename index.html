@@ -160,6 +160,179 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/18/GPU-HashTable-as-a-custom-op-for-TensorFlow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/18/GPU-HashTable-as-a-custom-op-for-TensorFlow/" class="post-title-link" itemprop="url">GPU HashTable as a custom op for TensorFlow</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-18 13:01:51 / Modified: 21:06:19" itemprop="dateCreated datePublished" datetime="2021-03-18T13:01:51+08:00">2021-03-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/18/GPU-HashTable-as-a-custom-op-for-TensorFlow/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/17/Javascript-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/17/Javascript-notes/" class="post-title-link" itemprop="url">Javascript notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-17 21:24:19" itemprop="dateCreated datePublished" datetime="2021-03-17T21:24:19+08:00">2021-03-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-18 15:05:25" itemprop="dateModified" datetime="2021-03-18T15:05:25+08:00">2021-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
+<li><p> “Instantiating” a class in JavaScript does create a new object, but not one that is independent of its parent class. Rather, it creates an object that is linked to a <strong>prototype</strong>. Changes to that prototype propagate to the new object, even after instantiation.</p>
+</li>
+<li><p>Classes can only contain method definitions, not data properties;</p>
+</li>
+<li><p>A derived class can’t contain an empty constructor. Even if all the constructor does is call super(), you’ll still have to do so explicitly. It can, however, contain no constructor.</p>
+</li>
+<li><p>You must call super in the constructor of a derived class before you use this.</p>
+</li>
+<li><p>Calling any function with the <strong>new</strong> keyword causes it to return an object – this is called making a constructor call, and such functions are generally called constructors: When you call a function with new, four things happen under the hood:</p>
+<ul>
+<li>A new object gets created (let’s call it O);</li>
+<li>O gets linked to another object, called its prototype;</li>
+<li>The function’s this value is set to refer to O;</li>
+<li>The function implicitly returns O.</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/17/Javascript-notes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/15/Software-Engineering/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -183,10 +356,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-15 11:00:21 / Modified: 20:13:39" itemprop="dateCreated datePublished" datetime="2021-03-15T11:00:21+08:00">2021-03-15</time>
+              <time title="Created: 2021-03-15 11:00:21" itemprop="dateCreated datePublished" datetime="2021-03-15T11:00:21+08:00">2021-03-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-18 15:05:25" itemprop="dateModified" datetime="2021-03-18T15:05:25+08:00">2021-03-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -279,7 +458,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 19:12:01" itemprop="dateModified" datetime="2021-03-17T19:12:01+08:00">2021-03-17</time>
+                <time title="Modified: 2021-03-18 19:36:48" itemprop="dateModified" datetime="2021-03-18T19:36:48+08:00">2021-03-18</time>
               </span>
 
           
@@ -406,202 +585,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/09/Tools-cheatsheet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/09/Tools-cheatsheet/" class="post-title-link" itemprop="url">Tools cheatsheet</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-10 06:48:30" itemprop="dateCreated datePublished" datetime="2021-03-10T06:48:30+08:00">2021-03-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-16 16:44:10" itemprop="dateModified" datetime="2021-03-16T16:44:10+08:00">2021-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="CI-clang-and-yapf"><a href="#CI-clang-and-yapf" class="headerlink" title="CI: clang and yapf"></a>CI: clang and yapf</h3><ul>
-<li>clang-format -style=file -i tensorflow/core/kernels/ResourceSparseApplyAdagradV2.*</li>
-<li>yapf -i --style pep8 tensorflow/python/test_abs.py</li>
-<li>cpplint --linelength=80 --counting=detailed --filter=-build/namespaces --root=src $(find src/pytorch_ops -name “<em>.h” -or -name “</em>.cc”)</li>
-<li>cpplint --linelength=80 --counting=detailed --root=src $(find src -path “src/pytorch_ops” -prune -name “<em>.h” -or -name “</em>.cc”)</li>
-</ul>
-<h3 id="GDB-and-nm"><a href="#GDB-and-nm" class="headerlink" title="GDB and nm"></a>GDB and nm</h3><ul>
-<li>nm -D BINARY // Only show BINARY (object file, static/dynamic library, executable) dynamic section’s symbol: T/t means golbal/local symbol. U means undefined symbol.</li>
-<li>nm -Du BINARY // Only show undefined symbol</li>
-<li>c++filt // Transform symbols in so to human readable form </li>
-</ul>
-<h3 id="Performance-Monitoring-Tools"><a href="#Performance-Monitoring-Tools" class="headerlink" title="Performance Monitoring Tools"></a>Performance Monitoring Tools</h3><ul>
-<li>Program Optimization: Gprof, Perf, VTune</li>
-<li>Program Debugging: Valgrind, Sanitizers</li>
-<li>Advanced Analysis: Pin, Contech
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/09/Tools-cheatsheet/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/08/Nvidia-GPU-Architecture/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/08/Nvidia-GPU-Architecture/" class="post-title-link" itemprop="url">Nvidia GPU Architecture</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-09 07:41:47" itemprop="dateCreated datePublished" datetime="2021-03-09T07:41:47+08:00">2021-03-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 17:45:53" itemprop="dateModified" datetime="2021-03-11T17:45:53+08:00">2021-03-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CUDA/" itemprop="url" rel="index"><span itemprop="name">CUDA</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-
-<h3 id="TBD"><a href="#TBD" class="headerlink" title="TBD"></a>TBD</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.google.com/search?q=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;oq=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;aqs=chrome..69i57.4287j0j1&amp;sourceid=chrome&amp;ie=UTF-8">https://www.google.com/search?q=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;oq=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;aqs=chrome..69i57.4287j0j1&amp;sourceid=chrome&amp;ie=UTF-8</a></li>
-<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline">https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shouhuxianjian/p/9817243.html">https://www.cnblogs.com/shouhuxianjian/p/9817243.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://jcf94.com/">https://jcf94.com/</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/267104699/answer/379444094">https://www.zhihu.com/question/267104699/answer/379444094</a></li>
-</ul>
-<h3 id="CUDA-core"><a href="#CUDA-core" class="headerlink" title="CUDA core"></a><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-a-CUDA-core">CUDA core</a></h3><ul>
-<li><p>A pipeline that can do 32bit floating point addition, 32bit floating point multiplication, 32bit to 8bit integer operations such as shifts, adds, muls and similar operations and also generates memory requests on its SM unit to be served with data to keep constantly working on data. Also requests special function calculations and gets synchronized by SM unit for proper calculation of parallel algorithms.</p>
-</li>
-<li><p>When a CUDA kernel is running, it is cloned on all “CUDA threads” and these “CUDA threads” flow through all “CUDA pipelines”. Each pipeline is capable of up to 16-way threading. This lets all of its compute resources (integer, floatingpoint, data requests, ..) be efficiently used. When a “warp” of “CUDA threads” is eligible for issuing, it takes 32 “CUDA pipelines” to run on and gets locked onto it. This makes 32 “CUDA pipelines” work as a team, to implicitly do a lock-step iteration of CUDA kernel instructions. This happens concurrently with other “warps” too.</p>
-</li>
-<li><p>“CUDA core” is a “pipeline” which is used for “mapping” some “CUDA threads” onto them in a synchronized manner, to efficiently take on continuous computation.</p>
-</li>
-<li><p>Number of CUDA cores is only important when all a kernel do is just 32 bit multiplication and 32 bit addition. When it needs 64bit operations, then you should look at other parts such as “double precision” versions. They are generally a scarce resource in mainstream hardware. Also special function units are as scarce as 1/4 of “cores”. So if you are doing just square root calculations, you should take it into consideration. For example, Kepler architecture contains only 1/6 of the number of cores, as special function units. Latest generation GPUs generally have 1/4 ratio so they are better at that.</p>
-</li>
-<li><p>Because of architectual differencies, a CUDA core on an old architecture is not same performance as a new architecure CUDA core (pipeline). You shouldn’t compare Kepler’s cores to Volta’s cores. Volta has much more bandwidth per CUDA pipeline than what Kepler had. So, 1 GFLOPS of Volta is actually like 1.5-2.0 GFLOPS of Kepler.</p>
-</li>
-<li><p>CUDA core is not a full core, it is a pipeline. It just does requests on some other resources and responds with results. It resembles a 16-thread pentium with single core without i/o.</p>
-</li>
-<li></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -669,20 +656,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

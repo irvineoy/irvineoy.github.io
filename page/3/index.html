@@ -160,6 +160,197 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/14/Git-Cheatsheet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/14/Git-Cheatsheet/" class="post-title-link" itemprop="url">Git Cheatsheet</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-15 02:37:53" itemprop="dateCreated datePublished" datetime="2021-01-15T02:37:53+08:00">2021-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-08 10:38:07" itemprop="dateModified" datetime="2021-03-08T10:38:07+08:00">2021-03-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Good-git-resources"><a href="#Good-git-resources" class="headerlink" title="Good git resources"></a>Good git resources</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs">https://git-scm.com/docs</a></li>
+</ul>
+<h3 id="Git-Move-files-from-one-repository-to-another-while-preserving-git-history"><a href="#Git-Move-files-from-one-repository-to-another-while-preserving-git-history" class="headerlink" title="Git Move files from one repository to another while preserving git history"></a>Git Move files from one repository to another while preserving git history</h3><ol>
+<li>mkdir merge_repo &amp;&amp; cd merge_repo</li>
+<li>git clone –branch master –origin origin –progress -v git@github:xxx/projectA.git</li>
+<li>cd projectA</li>
+<li>git remote rm origin </li>
+<li>git filter-branch –subdirectory-filter subfolder/FOLDER_TO_KEEP – –all</li>
+<li>git reset –hard &amp;&amp; git gc –aggressive &amp;&amp; git prune &amp;&amp; git clean -fd</li>
+<li>(optional) mkdir anotherfolder &amp;&amp; mv * anotherfolder &amp;&amp; git add . &amp;&amp; git commit</li>
+<li>cd .. </li>
+<li>git clone &lt;git repository B url&gt; projectB</li>
+<li>cd projectB</li>
+<li>git remote add repoA ../projectA</li>
+<li>git pull repoA master –allow-unrelated-histories</li>
+<li>git remote rm repoA</li>
+<li>git push</li>
+</ol>
+<ul>
+<li>reference: <a target="_blank" rel="noopener" href="https://medium.com/@ayushya/move-directory-from-one-repository-to-another-preserving-git-history-d210fa049d4b">https://medium.com/@ayushya/move-directory-from-one-repository-to-another-preserving-git-history-d210fa049d4b</a></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/14/Git-Cheatsheet/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/04/CUDA-concepts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/04/CUDA-concepts/" class="post-title-link" itemprop="url">CUDA concepts</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-04 08:49:19" itemprop="dateCreated datePublished" datetime="2021-01-04T08:49:19+08:00">2021-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-17 11:00:57" itemprop="dateModified" datetime="2021-03-17T11:00:57+08:00">2021-03-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CUDA/" itemprop="url" rel="index"><span itemprop="name">CUDA</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Thread-Hierarchy"><a href="#Thread-Hierarchy" class="headerlink" title="Thread Hierarchy"></a>Thread Hierarchy</h3><ul>
+<li><p>Block Grid</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/even-easier-introduction-cuda/">Nvidia’s blog</a>: You could think of that a grid wraps a bunch of blocks, a block wraps a bunch of threads, and a thread wraps a bunch of basic array elements.</li>
+<li><a target="_blank" rel="noopener" href="https://leimao.github.io/blog/CUDA-Concept-Block-Grid/">Another Blog</a> which contains figures illustrating the Block and Grid.</li>
+<li>Here is an simple example of add kernel. </li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__global__</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">float</span> *x, <span class="keyword">float</span> *y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> index = blockIdx.x * blockDim.x + threadIdx.x;</span><br><span class="line">  <span class="keyword">int</span> stride = blockDim.x * gridDim.x;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; n; i += stride)</span><br><span class="line">    y[i] = x[i] + y[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/04/CUDA-concepts/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2020/12/04/Compile-Debug-version-TensorFlow-whl-package-from-source/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -191,7 +382,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-08 10:38:22" itemprop="dateModified" datetime="2021-03-08T10:38:22+08:00">2021-03-08</time>
+                <time title="Modified: 2021-03-18 19:53:43" itemprop="dateModified" datetime="2021-03-18T19:53:43+08:00">2021-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -345,7 +536,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2020/10/07/C-notes/">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2020/10/17/Project-Discipline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/squareSelfie.png">
@@ -359,7 +550,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/07/C-notes/" class="post-title-link" itemprop="url">C++ notes</a>
+            <a href="/2020/10/17/Project-Discipline/" class="post-title-link" itemprop="url">Project Discipline</a>
         </h2>
 
         <div class="post-meta">
@@ -369,14 +560,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-10-07 14:25:50" itemprop="dateCreated datePublished" datetime="2020-10-07T14:25:50+08:00">2020-10-07</time>
+              <time title="Created: 2020-10-18 07:05:56" itemprop="dateCreated datePublished" datetime="2020-10-18T07:05:56+08:00">2020-10-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-09 14:46:23" itemprop="dateModified" datetime="2021-03-09T14:46:23+08:00">2021-03-09</time>
+                <time title="Modified: 2021-03-18 15:47:48" itemprop="dateModified" datetime="2021-03-18T15:47:48+08:00">2021-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -384,7 +575,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Languages/" itemprop="url" rel="index"><span itemprop="name">Languages</span></a>
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
                 </span>
             </span>
 
@@ -399,21 +590,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="const"><a href="#const" class="headerlink" title="const"></a><a target="_blank" rel="noopener" href="http://duramecho.com/ComputerInformation/WhyHowCppConst.html">const</a></h2><ul>
-<li>const int * abc: Declares that the abc is a variable pointer to a constant integer. </li>
-<li>int const * abc: Also declares that the abc is a variable pointer to a constant integer.</li>
-<li>int * const abc: A const pointer to a variable integer. Useful for storage that can be changed in value but not moved in memory.</li>
-<li>int const * const abc: A const pointer to a const integer. <h4 id="Parameter-passing"><a href="#Parameter-passing" class="headerlink" title="Parameter passing"></a>Parameter passing</h4></li>
-<li>void Subroutine(big_structure_type &amp;Parameter);</li>
-<li>Using &amp; maybe because it is going to alter the variable passed to it or might just be to save copying time and there is no way to tell which it is. </li>
-<li>In this case, we could use the following signature for the second situation: void Subroutine(big_structure_type const &amp;Parameter).<h4 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object Oriented Programming"></a>Object Oriented Programming</h4></li>
-<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Class2</span>&#123;</span> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Method1</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="keyword">int</span> MemberVariable1;&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Which will ban Method1 in Class2 from being anything which can attempt to alter any member variables in the object.</li>
-<li>Method1 could be called without having an object of Class2</li>
-</ul>
+          <h2 id="C-C-code-standard"><a href="#C-C-code-standard" class="headerlink" title="C/C++ code standard"></a>C/C++ code standard</h2><h3 id="File-Naming-and-Type-of-Data"><a href="#File-Naming-and-Type-of-Data" class="headerlink" title="File, Naming and Type of Data"></a>File, Naming and Type of Data</h3><ul>
+<li>Follow the Google C++ Style Guide (only for independent projects, the code integrated with other projects follows the corresponding style)</li>
+<li>The inclusion of the external library uses quotation marks, for exmaple <code>#include &quot;gtest/gtest.h&quot;</code></li>
+<li>The macro definition should start with the project name <code>PROJECTNAME_</code></li>
+<li>Other scenarios for designing global namespace conflicts are similer. For example, the script directory name can start with <code>projectname-</code></li>
+<li>Forbid C-style cast</li>
+<li>Use <code>nullptr</code> instead of <code>NULL</code></li>
+<li>Be serious about precision-sensitive code: use <code>uint8_t</code>, <code>int64_t</code> instead of <code>int</code>, <code>unsigned long</code>, etc.
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/10/07/C-notes/#more" rel="contents">
+              <a class="btn" href="/2020/10/17/Project-Discipline/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -436,7 +623,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -504,20 +691,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

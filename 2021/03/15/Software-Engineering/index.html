@@ -28,7 +28,7 @@
 <meta property="og:description" content="Testing Testing is a whole-team responsibility Different roles and different testings: Developers: unit, integration, system, acceptance Disigners: integration Customers: acceptance Analysts: acceptan">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-15T03:00:21.000Z">
-<meta property="article:modified_time" content="2021-03-15T12:13:39.271Z">
+<meta property="article:modified_time" content="2021-03-18T07:05:25.573Z">
 <meta property="article:tag" content="Unit Test">
 <meta property="article:tag" content="Software Engineering">
 <meta name="twitter:card" content="summary">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-15 11:00:21 / Modified: 20:13:39" itemprop="dateCreated datePublished" datetime="2021-03-15T11:00:21+08:00">2021-03-15</time>
+              <time title="Created: 2021-03-15 11:00:21" itemprop="dateCreated datePublished" datetime="2021-03-15T11:00:21+08:00">2021-03-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-18 15:05:25" itemprop="dateModified" datetime="2021-03-18T15:05:25+08:00">2021-03-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -230,7 +236,23 @@
 <li>Fault (Also called defect, testing is aim to reveal this) -&gt; Error -&gt; Failure (Test will cause this)<span id="more"></span></li>
 <li>Unit Testing: Individual components; Integration/Functional Testing: Groups of related components; System/Acceptance Testing: System as whole;</li>
 </ul>
-
+<h2 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h2><h3 id="Package-Diagrams"><a href="#Package-Diagrams" class="headerlink" title="Package Diagrams"></a>Package Diagrams</h3><ul>
+<li>Package diagrams are used to reflect the organization of packages and their elements. When used to represent class elements, package diagrams provide a visualization of the namespaces. </li>
+<li>Package Merge: A «merge» connector between two packages defines an implicit generalization between elements in the source package, and elements with the same name in the target package. The source element definitions are expanded to include the element definitions contained in the target.</li>
+<li>Package Import: The «import» connector indicates that the elements within the target package, which in this example is a single class, use unqualified names when being referred to from the source package. The source package’s namespace gains access to the target classes.</li>
+</ul>
+<h3 id="Class-Diagrams"><a href="#Class-Diagrams" class="headerlink" title="Class Diagrams"></a>Class Diagrams</h3><ul>
+<li>Class Notation: “+” means public level of visibility; “-“ means Private level; “#” allows an operation, or attribute, to be defined as protected; “~” symbol indicates package visibility;</li>
+<li>Associations: An association implies two model elements have a relationship (knows-about) - usually implemented as an instance variable in one class. </li>
+<li>Aggregations are used to depict elements which are made up of smaller components (is-part-of). Aggregation relationships are shown by a white diamond-shaped arrowhead pointing towards the target or parent class.</li>
+<li>Inheritance (is-a-kind-of)</li>
+</ul>
+<h3 id="Deployment-diagram"><a href="#Deployment-diagram" class="headerlink" title="Deployment diagram,"></a>Deployment diagram,</h3><ul>
+<li>Deployment diagram models the run-time architecture of a system. It shows the configuration of the hardware elements (nodes) and shows how software elements and artifacts are mapped onto those nodes.</li>
+<li>An instance can be distinguished from a node by the fact that its name is underlined and has a colon before its base node type. </li>
+<li>In the context of a deployment diagram, an association represents a communication path between nodes.</li>
+</ul>
+<h2 id="Architectural-patterns"><a href="#Architectural-patterns" class="headerlink" title="Architectural patterns"></a>Architectural patterns</h2>
     </div>
 
     
@@ -252,7 +274,10 @@
     <a href="/2021/03/11/HugeCTR-notes/" rel="prev" title="HugeCTR notes">
       <i class="fa fa-chevron-left"></i> HugeCTR notes
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/17/Javascript-notes/" rel="next" title="Javascript notes">
+      Javascript notes <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -311,7 +336,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing"><span class="nav-number">1.</span> <span class="nav-text">Testing</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing"><span class="nav-number">1.</span> <span class="nav-text">Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML"><span class="nav-number">2.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-Diagrams"><span class="nav-number">2.1.</span> <span class="nav-text">Package Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Diagrams"><span class="nav-number">2.2.</span> <span class="nav-text">Class Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-diagram"><span class="nav-number">2.3.</span> <span class="nav-text">Deployment diagram,</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Architectural-patterns"><span class="nav-number">3.</span> <span class="nav-text">Architectural patterns</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -327,20 +352,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

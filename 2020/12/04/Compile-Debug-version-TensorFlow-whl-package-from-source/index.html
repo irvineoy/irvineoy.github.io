@@ -28,7 +28,7 @@
 <meta property="og:description" content="Compile tensorflow 2.3 from source with Debug symbols Source code compiling handbook: https:&#x2F;&#x2F;www.tensorflow.org&#x2F;install&#x2F;source  bazel manual: https:&#x2F;&#x2F;docs.bazel.build&#x2F;versions&#x2F;master&#x2F;user-manual.html">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-04T03:34:45.000Z">
-<meta property="article:modified_time" content="2021-03-08T02:38:22.794Z">
+<meta property="article:modified_time" content="2021-03-18T11:53:43.864Z">
 <meta property="article:tag" content="TensorFlow">
 <meta name="twitter:card" content="summary">
 
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-08 10:38:22" itemprop="dateModified" datetime="2021-03-08T10:38:22+08:00">2021-03-08</time>
+                <time title="Modified: 2021-03-18 19:53:43" itemprop="dateModified" datetime="2021-03-18T19:53:43+08:00">2021-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,32 +239,41 @@
 </li>
 <li><p>Use deb package install cudnn7.6.5 from Nvidia website</p>
 </li>
-<li><p>在tf源码目录下执行./configure时提示缺少cublas_api.h，这是因为所用docker镜像内cuda组件不完整。<br>(NOTE: 可以考虑使用tensorflow的devel镜像。)<br>安装Nvidia官网的cuda-repo的deb包（cuda网络安装版deb包）。<br>安装完毕后，执行apt update，此时可以从apt源找到各种cuda组件包。但cublas缺少10.1版本。<br>apt安装cuda-libraries-dev-10-1,cuda-libraries-10-1，会附带安装cublas10.2版本，<br>将cuda10.2目录下的cublas相关文件拷贝到cuda10.1目录中。</p>
+<li><p>When executing ./configure in the tf source code directory, it prompts that cublas_api.h is missing, because the cuda component in the docker image used is incomplete. (NOTE: Maybe consider using tensorflow devel image.)</p>
 </li>
-<li><p>tf源码目录中执行./configure，选择支持cuda，其他的如tensorrt等不选择。</p>
+<li><p>Install the deb package of cuda-repo from the Nvidia official website (cuda network installation version deb package).</p>
 </li>
-<li><p>使用bazelisk。尝试采用bazel的”-c dbg”编译选项。编译命令为<br>bazel build –config=cuda –strip=never -c dbg –verbose_failures –keep_going<br>//tensorflow/tools/pip_package:build_pip_package</p>
+<li><p>After the installation is complete, execute apt update. At this time, you can find various cuda component packages from the apt source. But cublas lacks version 10.1.</p>
 </li>
-<li><p>有些文件bazel无法下载(llvm,aws-sdk)，可以手动下载，<br>再把bazel的下载链接替换为 file:///path/to/downloaded/file (bazel使用curl，支持file://)</p>
+<li><p><code>apt install cuda-libraries-dev-10-1, cuda-libraries-10-1</code>, then cublas 10.2 version will be installed</p>
 </li>
-<li><p>aws-checksum在dbg模式下汇编块编译错误，修改third_party/aws/aws-checksums.bazel，添加gdb模式下的DEBUG_BUILD。</p>
+<li><p>Copy the cublas related files in the cuda10.2 directory to the cuda10.1 directory.</p>
+</li>
+<li><p>Execute ./configure in the tf source code directory, choose to support cuda, and do not choose other things such as tensorrt.</p>
+</li>
+<li><p>Use bazelisk. Try to use bazel’s <code>-c dbg</code> compilation option. The compilation command is</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build --config&#x3D;cuda --strip&#x3D;never -c dbg --verbose_failures --keep_going &#x2F;&#x2F;tensorflow&#x2F;tools&#x2F;pip_package:build_pip_package</span><br></pre></td></tr></table></figure></li>
+<li><p>Some files cannot be downloaded by bazel (llvm, aws-sdk), you can download them manually. Then replace the download link of bazel with file:///path/to/downloaded/file (bazel uses curl and supports file://)</p>
+</li>
+<li><p>aws-checksum compilation error in dbg mode, you could modify third_party/aws/aws-checksums.bazel, add DEBUG_BUILD in gdb mode.</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">29a30,35</span><br><span class="line">&gt;     defines &#x3D; select(&#123;</span><br><span class="line">&gt;         &quot;@org\_tensorflow&#x2F;&#x2F;tensorflow:debug&quot;: [</span><br><span class="line">&gt;             &quot;DEBUG\_BUILD&quot;</span><br><span class="line">&gt;         ],</span><br><span class="line">&gt;         &quot;&#x2F;&#x2F;conditions:default&quot;: [],</span><br><span class="line">&gt;     &#125;),</span><br></pre></td></tr></table></figure>
 <p>  <a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow/issues/37498">https://github.com/tensorflow/tensorflow/issues/37498</a> ,<br>  <a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow/pull/42743/files">https://github.com/tensorflow/tensorflow/pull/42743/files</a></p>
 </li>
-<li><p>nenv虚拟环境下安装生成的包出错： invalid command bdist_wheel，需要 pip3 install wheel 。</p>
+<li><p>An error occurred when installing the generated package in the venv virtual environment: invalid command bdist_wheel, pip3 install wheel is required.</p>
 </li>
-<li><p>wheel包安装后，在python中import tensorflow时出错，<br>提示_pywrap_tensorflow_internal.so文件中有未定义的符号<br>_ZN10tensorflow4data12experimental19SnapshotDatasetV2Op11kReaderFuncE，<br>即tensorflow::data::experimental::SnapshotDatasetV2Op::kReaderFunc。</p>
-</li>
+<li><p>After the wheel package is installed, an error occurs when importing tensorflow in python: Prompt that there are undefined symbols in the _pywrap_tensorflow_internal.so file</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\_ZN10tensorflow4data12experimental19SnapshotDatasetV2Op11kReaderFuncE</span><br><span class="line">which is: tensorflow::data::experimental::SnapshotDatasetV2Op::kReaderFunc</span><br></pre></td></tr></table></figure></li>
 </ul>
 <hr>
 <ul>
-<li><p>切换到tf2.3.0版本源码(<a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow/releases/tag/v2.3.0"><br>https://github.com/tensorflow/tensorflow/releases/tag/v2.3.0
-</a>)，<br>重新尝试编译，仍然在import tensorflow时出现同样的未定义符号错误。</p>
+<li><p>Switch to tf2.3 version source code. Try to compile again, and still get the same undefined symbol error when importing tensorflow.</p>
 </li>
-<li><p>继续使用2.3.0版本源码，但放弃’-c dgb’编译模式，采用’<strong>-c opt</strong>‘，调整编译命令为<br>bazel build –config=cuda -c opt –copt -g –strip=never –keep_going –verbose_failures<br>//tensorflow/tools/pip_package:build_pip_package ，<br>同时删除aws-checksums的DEBUG_BUILD。<br>编译、安装、运行均成功。</p>
+<li><p>Continue to use the source code of version 2.3.0, but give up the <strong>-c dgb</strong> compilation mode, use <strong>-c opt</strong>, and adjust the compilation command</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build --config&#x3D;cuda -c opt --copt -g --strip&#x3D;never --keep_going --verbose_failures &#x2F;&#x2F;tensorflow&#x2F;tools&#x2F;pip_package:build_pip_package</span><br></pre></td></tr></table></figure></li>
+<li><p>Also delete DEBUG_BUILD of aws-checksums. The we could successfully Compile, install, and run.</p>
 </li>
 </ul>
-<h2 id="tensorflow的调试"><a href="#tensorflow的调试" class="headerlink" title="tensorflow的调试"></a>tensorflow的调试</h2><ul>
+<h2 id="Debug-for-tensorflow"><a href="#Debug-for-tensorflow" class="headerlink" title="Debug for tensorflow"></a>Debug for tensorflow</h2><ul>
 <li>tensorflow has LOG messages and VLOG messages.<br>TF_CPP_MIN_LOG_LEVEL controls LOG messages.<br>It is the usual log level (INFO=0, WARNING=1, ERROR=2, etc.).<br>VLOG messages are controled by TF_CPP_MIN_VLOG_LEVEL,<br>and are actually always logged at the INFO log level.<br>It means that in any case,<br>TF_CPP_MIN_LOG_LEVEL=0 is needed to see any VLOG message.<br>TF_CPP_MIN_VLOG_LEVEL defaults to 0 and as it increases,<br>more debugging messages are logged in.<br>Consider adding the following lines before importing tensorflow:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#39;TF_CPP_MIN_LOG_LEVEL&#39;] &#x3D; &#39;0&#39;</span><br><span class="line">os.environ[&#39;TF_CPP_MIN_VLOG_LEVEL&#39;] &#x3D; &#39;3&#39;</span><br><span class="line">os.environ[&#39;TF_DUMP_GRAPH_PREFIX&#39;] &#x3D; &#39;&#x2F;tmp&#x2F;tf_dump_graph&#39;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
@@ -350,7 +359,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Compile-tensorflow-2-3-from-source-with-Debug-symbols"><span class="nav-number">1.</span> <span class="nav-text">Compile tensorflow 2.3 from source with Debug symbols</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-environment"><span class="nav-number">1.0.1.</span> <span class="nav-text">Docker environment</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compiling-and-errors%EF%BC%9A"><span class="nav-number">1.0.2.</span> <span class="nav-text">Compiling and errors：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow%E7%9A%84%E8%B0%83%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">tensorflow的调试</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Compile-tensorflow-2-3-from-source-with-Debug-symbols"><span class="nav-number">1.</span> <span class="nav-text">Compile tensorflow 2.3 from source with Debug symbols</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-environment"><span class="nav-number">1.0.1.</span> <span class="nav-text">Docker environment</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compiling-and-errors%EF%BC%9A"><span class="nav-number">1.0.2.</span> <span class="nav-text">Compiling and errors：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debug-for-tensorflow"><span class="nav-number">2.</span> <span class="nav-text">Debug for tensorflow</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -366,20 +375,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
