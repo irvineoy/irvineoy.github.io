@@ -28,7 +28,7 @@
 <meta property="og:description" content="Testing Testing is a whole-team responsibility Different roles and different testings: Developers: unit, integration, system, acceptance Disigners: integration Customers: acceptance Analysts: acceptan">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-15T03:00:21.000Z">
-<meta property="article:modified_time" content="2021-03-19T12:45:11.857Z">
+<meta property="article:modified_time" content="2021-03-20T08:59:42.239Z">
 <meta property="article:tag" content="Unit Test">
 <meta property="article:tag" content="Software Engineering">
 <meta name="twitter:card" content="summary">
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-19 20:45:11" itemprop="dateModified" datetime="2021-03-19T20:45:11+08:00">2021-03-19</time>
+                <time title="Modified: 2021-03-20 16:59:42" itemprop="dateModified" datetime="2021-03-20T16:59:42+08:00">2021-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,6 +258,71 @@
 <li><strong>Liskov substitution principle</strong>: This principle states that a derived class must be substitutable for its base class.</li>
 <li><strong>Interface segregation principle</strong>: This principle states that client-specific interfaces are better than one general-purpose interface.</li>
 <li><strong>Dependency inversion Principle</strong>: This principle states that the high-level module must not depend on the low-level module, but they should depend on abstractions.</li>
+</ul>
+<h2 id="Architecture-haiku"><a href="#Architecture-haiku" class="headerlink" title="Architecture haiku"></a>Architecture haiku</h2><ul>
+<li>Introduction: An architecture haiku aims to capture the architecture’s most important details on a single piece of paper.</li>
+<li>It includes:<ul>
+<li>A brief summary of the overall solution</li>
+<li>A list of important technical </li>
+<li>A high-level summary of key functional requirements</li>
+<li>A prioritized list of quality attributes</li>
+<li>A brief explanation of design decisions, including a rationale and tradeoffs</li>
+<li>A list of architectural styles and patterns used </li>
+<li>Only those diagrams that add meaning beyond the information already on the page</li>
+</ul>
+</li>
+<li>Haiku creates a <em>cognitive trigger</em> that facilitates the recall of essential contextual information about a design decision.</li>
+<li>Treat the Haiku as a living document</li>
+<li>Use the Haiku as an Outline for future documentation</li>
+</ul>
+<h2 id="Design-Partten"><a href="#Design-Partten" class="headerlink" title="Design Partten"></a>Design Partten</h2><ul>
+<li><strong>Singleton</strong>: Ensure that only one instance of a class is created. Provide a global point of access to the instance.</li>
+<li><strong>Bridge</strong>:<ul>
+<li>Expecting implementation of a class to change in anticipation of new vendor, new technology, or future optimizations</li>
+<li>Intent: Decouple interfaces of a class from its implementations so that the two can vary independently.</li>
+</ul>
+</li>
+<li><strong>Observer</strong>:<ul>
+<li>Then change of a state in one object must be reflected in another object without keeping the objects tightly coupled</li>
+<li>Intent: maintain consistency across the states of one publisher and several subscribers.</li>
+</ul>
+</li>
+<li><strong>Composite</strong>:<ul>
+<li>You want to deal with objects uniformly regardless of position in an object hierarchy</li>
+<li>Intent: Compose objects into tree structures to represent part-whole hierarchies.</li>
+<li>Window and panel are composites that may contain other windows or panels.</li>
+</ul>
+</li>
+<li><strong>Facade</strong><ul>
+<li>It is desirable to isolate a complex subsystem through a simple interface</li>
+<li>Intent: reduce coupling among a set of related classes and the rest of the system</li>
+</ul>
+</li>
+<li><strong>Strategy</strong><ul>
+<li>It is desirable to make an object adaptable by allowing clients to change its behavior dynamically</li>
+<li>Intent: define a family of algorithms, encapsulate each one and make them interchangeable at runtime.</li>
+</ul>
+</li>
+<li><strong>Factory Method</strong><ul>
+<li>You want a superclass to handle all standard behavior related to the processing of a set of products, but defer the creation of the proeucts to contrete subclasses</li>
+<li>Intent: define an interface for creating objects, but let subclasses decide which class to instantiate at runtime.</li>
+</ul>
+</li>
+<li><strong>Adapter</strong><ul>
+<li>A client has a strong coupling to a legacy component which may be replaced</li>
+<li>Intent: Convert the interface of a legacy class into a different interface expected by the client so that the client and legacy class work together with any changes to the client or the legacy class.</li>
+</ul>
+</li>
+<li><strong>Inversion of Control</strong> (IoC) is used to invert different kinds of controls in object-oriented design to achieve loose coupling. Here, controls refer to any additional responsibilities a class has, other than its main responsibility. This include control over the flow of an application, and control over the flow of an object creation or dependent object creation and binding.</li>
+</ul>
+<blockquote>
+<p>IoC is all about inverting the control. To explain this in layman’s terms, suppose you drive a car to your work place. This means you control the car. The IoC principle suggests to invert the control, meaning that instead of driving the car yourself, you hire a cab, where another person will drive the car. Thus, this is called inversion of the control - from you to the cab driver. You don’t have to drive a car yourself and you can let the driver do the driving so that you can focus on your main work.</p>
+</blockquote>
+<blockquote>
+<p>The IoC principle helps in designing loosely coupled classes which make them testable, maintainable and extensible.</p>
+</blockquote>
+<ul>
+<li><strong>Dependency Injection</strong> (DI) is a design pattern used to implement IoC (Inversion of Control). It allows the creation of dependent objects outside of a class and provides those objects to a class through different ways. Using DI, we move the creation and binding of the dependent objects outside of the class that depends on them.</li>
 </ul>
 
     </div>
@@ -340,7 +405,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing"><span class="nav-number">1.</span> <span class="nav-text">Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML"><span class="nav-number">2.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-Diagrams"><span class="nav-number">2.1.</span> <span class="nav-text">Package Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Diagrams"><span class="nav-number">2.2.</span> <span class="nav-text">Class Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-diagram"><span class="nav-number">2.3.</span> <span class="nav-text">Deployment diagram,</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOLID-Principle"><span class="nav-number">3.</span> <span class="nav-text">SOLID Principle</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing"><span class="nav-number">1.</span> <span class="nav-text">Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML"><span class="nav-number">2.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-Diagrams"><span class="nav-number">2.1.</span> <span class="nav-text">Package Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Diagrams"><span class="nav-number">2.2.</span> <span class="nav-text">Class Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-diagram"><span class="nav-number">2.3.</span> <span class="nav-text">Deployment diagram,</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOLID-Principle"><span class="nav-number">3.</span> <span class="nav-text">SOLID Principle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Architecture-haiku"><span class="nav-number">4.</span> <span class="nav-text">Architecture haiku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-Partten"><span class="nav-number">5.</span> <span class="nav-text">Design Partten</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
