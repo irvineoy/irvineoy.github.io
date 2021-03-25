@@ -575,7 +575,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-25 17:25:26" itemprop="dateModified" datetime="2021-03-25T17:25:26+08:00">2021-03-25</time>
+                <time title="Modified: 2021-03-25 17:31:39" itemprop="dateModified" datetime="2021-03-25T17:31:39+08:00">2021-03-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -602,15 +602,16 @@
 <li>CUDA provides three key abstractions: a hierarchy of thread groups, shared memories, and barrier synchronization, that provide a clear parallel structure to conventional C code for one thread of the hierarchy.</li>
 </ul>
 <h3 id="Thread-Hierarchy"><a href="#Thread-Hierarchy" class="headerlink" title="Thread Hierarchy"></a>Thread Hierarchy</h3><ul>
-<li><p>The programmer organizes these<br>threads into a hierarchy of grids of thread blocks. A thread<br>block is a set of concurrent threads that can cooperate<br>among themselves through barrier synchronization and<br>shared access to a memory space private to the block. A<br>grid is a set of thread blocks that may each be executed<br>independently and thus may execute in parallel.</p>
+<li><p>The programmer organizes these threads into a hierarchy of grids of <strong>thread blocks</strong>. A thread block is a set of concurrent threads that can cooperate among themselves through barrier synchronization and shared access to a memory space private to the block. A grid is a set of thread blocks that may each be executed independently and thus may execute in parallel.</p>
 </li>
-<li><p>Each thread is given a unique thread<br>ID number threadIdx within its thread block, numbered<br>0, 1, 2, …, blockDim–1, and each thread block is given a<br>unique block ID number blockIdx within its grid. CUDA<br>supports thread blocks containing up to 512 threads. </p>
+<li><p>Each thread is given a unique thread ID number <strong>threadIdx</strong> within its thread block, numbered<br>0, 1, 2, …, blockDim–1, and each thread block is given a unique block ID number <strong>blockIdx</strong> within its grid. CUDA supports thread blocks containing up to 512 threads. </p>
 </li>
-<li><p><code>kernel&lt;&lt;&lt;dimGrid, dimBlock&gt;&gt;&gt;(... parameter list ...);</code> where dimGrid and dimBlock are three-element vectors<br>of type dim3 that specify the dimensions of the grid<br>in blocks and the dimensions of the blocks in threads,</p>
+<li><p><code>kernel&lt;&lt;&lt;dimGrid, dimBlock&gt;&gt;&gt;(... parameter list ...);</code> where <strong>dimGrid</strong> and <strong>dimBlock</strong> are three-element vectors of type dim3 that specify the dimensions of the grid in blocks and the dimensions of the blocks in threads.</p>
 </li>
-<li><p>CUDA requires that thread blocks execute independently. It must be possible to execute blocks<br>in any order, in parallel or in series. Different blocks have<br>no means of direct communication, although they may<br>coordinate their activities using atomic memory operations<br>on the global memory visible to all threads—by atomically incrementing queue pointers, for example.</p>
+<li><p>CUDA requires that thread blocks execute independently. It must be possible to execute blocks</p>
 </li>
 </ul>
+<p><strong>in any order</strong>, in parallel or in series. Different blocks have no means of direct communication, although they may coordinate their activities using atomic memory operations on the global memory visible to all threads—by atomically incrementing queue pointers, for example.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/04/CUDA-concepts/#more" rel="contents">

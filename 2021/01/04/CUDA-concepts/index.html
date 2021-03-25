@@ -28,7 +28,7 @@
 <meta property="og:description" content="Introduction CUDA provides three key abstractions: a hierarchy of thread groups, shared memories, and barrier synchronization, that provide a clear parallel structure to conventional C code for one th">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-04T00:49:19.000Z">
-<meta property="article:modified_time" content="2021-03-25T09:25:26.145Z">
+<meta property="article:modified_time" content="2021-03-25T09:31:39.642Z">
 <meta property="article:tag" content="CUDA">
 <meta name="twitter:card" content="summary">
 
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-25 17:25:26" itemprop="dateModified" datetime="2021-03-25T17:25:26+08:00">2021-03-25</time>
+                <time title="Modified: 2021-03-25 17:31:39" itemprop="dateModified" datetime="2021-03-25T17:31:39+08:00">2021-03-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,18 +223,19 @@
 <li>CUDA provides three key abstractions: a hierarchy of thread groups, shared memories, and barrier synchronization, that provide a clear parallel structure to conventional C code for one thread of the hierarchy.</li>
 </ul>
 <h3 id="Thread-Hierarchy"><a href="#Thread-Hierarchy" class="headerlink" title="Thread Hierarchy"></a>Thread Hierarchy</h3><ul>
-<li><p>The programmer organizes these<br>threads into a hierarchy of grids of thread blocks. A thread<br>block is a set of concurrent threads that can cooperate<br>among themselves through barrier synchronization and<br>shared access to a memory space private to the block. A<br>grid is a set of thread blocks that may each be executed<br>independently and thus may execute in parallel.</p>
+<li><p>The programmer organizes these threads into a hierarchy of grids of <strong>thread blocks</strong>. A thread block is a set of concurrent threads that can cooperate among themselves through barrier synchronization and shared access to a memory space private to the block. A grid is a set of thread blocks that may each be executed independently and thus may execute in parallel.</p>
 </li>
-<li><p>Each thread is given a unique thread<br>ID number threadIdx within its thread block, numbered<br>0, 1, 2, …, blockDim–1, and each thread block is given a<br>unique block ID number blockIdx within its grid. CUDA<br>supports thread blocks containing up to 512 threads. </p>
+<li><p>Each thread is given a unique thread ID number <strong>threadIdx</strong> within its thread block, numbered<br>0, 1, 2, …, blockDim–1, and each thread block is given a unique block ID number <strong>blockIdx</strong> within its grid. CUDA supports thread blocks containing up to 512 threads. </p>
 </li>
-<li><p><code>kernel&lt;&lt;&lt;dimGrid, dimBlock&gt;&gt;&gt;(... parameter list ...);</code> where dimGrid and dimBlock are three-element vectors<br>of type dim3 that specify the dimensions of the grid<br>in blocks and the dimensions of the blocks in threads,</p>
+<li><p><code>kernel&lt;&lt;&lt;dimGrid, dimBlock&gt;&gt;&gt;(... parameter list ...);</code> where <strong>dimGrid</strong> and <strong>dimBlock</strong> are three-element vectors of type dim3 that specify the dimensions of the grid in blocks and the dimensions of the blocks in threads.</p>
 </li>
-<li><p>CUDA requires that thread blocks execute independently. It must be possible to execute blocks<br>in any order, in parallel or in series. Different blocks have<br>no means of direct communication, although they may<br>coordinate their activities using atomic memory operations<br>on the global memory visible to all threads—by atomically incrementing queue pointers, for example.</p>
+<li><p>CUDA requires that thread blocks execute independently. It must be possible to execute blocks</p>
 </li>
 </ul>
+<p><strong>in any order</strong>, in parallel or in series. Different blocks have no means of direct communication, although they may coordinate their activities using atomic memory operations on the global memory visible to all threads—by atomically incrementing queue pointers, for example.</p>
 <span id="more"></span>
 <ul>
-<li>To enable CUDA programs to run on any number of<br>processors, communication between thread blocks within<br>the same kernel grid is not allowed—they must execute<br>independently. </li>
+<li>To enable CUDA programs to run on any number of processors, communication between thread blocks within the same kernel grid is not allowed—they must execute independently. </li>
 </ul>
 <ul>
 <li><p>Block Grid</p>
@@ -246,18 +247,18 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__global__</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">float</span> *x, <span class="keyword">float</span> *y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> index = blockIdx.x * blockDim.x + threadIdx.x;</span><br><span class="line">  <span class="keyword">int</span> stride = blockDim.x * gridDim.x;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; n; i += stride)</span><br><span class="line">    y[i] = x[i] + y[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="CUDA-Memory"><a href="#CUDA-Memory" class="headerlink" title="CUDA Memory"></a>CUDA Memory</h3><ul>
-<li><p>Each thread block has a<br>shared memory visible to all threads of the block that has<br>the same lifetime as the block. Finally, all threads have<br>access to the same global memory. Programs declare variables in shared and global memory with the <code>__shared__</code> and <code>__device__</code> type qualifiers</p>
+<li><p>Each thread block has a <strong>shared memory</strong> visible to all threads of the block that has the same lifetime as the block. Finally, all threads have access to the same global memory. Programs declare variables in shared and global memory with the <code>__shared__</code> and <code>__device__</code> type qualifiers</p>
 </li>
-<li><p>Shared memory is expected to be a low-latency memory near each processor, much like an L1 cache.</p>
+<li><p><strong>Shared memory</strong> is expected to be a low-latency memory near each processor, much like an L1 cache.</p>
 </li>
-<li><p>Unified Virtual Address Space (UVA): The location of any memory on the host allocated through CUDA, or on any of the devices which use the unified address space, can be determined from the value of the pointer using <code>cudaPointerGetAttributes()</code>.</p>
+<li><p><strong>Unified Virtual Address Space (UVA)</strong>: The location of any memory on the host allocated through CUDA, or on any of the devices which use the unified address space, can be determined from the value of the pointer using <code>cudaPointerGetAttributes()</code>.</p>
 </li>
-<li><p>Page-Locked Host Memory: <code>codaHostAlloc()</code> allocate page-locked host memory where <code>malloc()</code> malloc pageable host memory.</p>
+<li><p><strong>Page-Locked Host Memory</strong>: <code>codaHostAlloc()</code> allocate page-locked host memory where <code>malloc()</code> malloc pageable host memory.</p>
 <ul>
 <li>Benefit: Asynchronous copy, maybe eliminate the need to copy, higher bandwidth(It’s pinned so there is no page fault, so device could fetch data without help from CPU)</li>
 </ul>
 </li>
-<li><p>Mapped Memory: A block of page-locked host memory can also be mapped into the address space of the device. Such a block could have another address in device memory that can be retrieved using <code>cudaHostGetDevicePointer()</code> and then used to access the block from within a kernel.</p>
+<li><p><strong>Mapped Memory</strong>: A block of page-locked host memory can also be mapped into the address space of the device. Such a block could have another address in device memory that can be retrieved using <code>cudaHostGetDevicePointer()</code> and then used to access the block from within a kernel.</p>
 </li>
 <li><p>An atomic function performs a read-modify-write atomic operation on one word residing in global or shared memory.</p>
 </li>
@@ -271,6 +272,7 @@
 </li>
 <li><p>The context holds all the management data to control and use the device. For instance, it holds the list of allocated memory, the loaded modules that contain device code, the mapping between CPU and GPU memory for zero copy, etc.</p>
 </li>
+<li></li>
 <li><p>Within a CUDA context, kernels are explicitly loaded as PTX or binary objects by the host code as described in Module. Kernels written in C must therefore be compiled separately into PTX or binary objects. Kernels are launched using API entry points as described in Kernel Execution.</p>
 </li>
 <li><p>Any application that wants to run on future device architectures must load PTX, not binary code. This is because binary code is architecture-specific and therefore incompatible with future architectures, whereas PTX code is compiled to binary code at load time by the device driver.</p>
