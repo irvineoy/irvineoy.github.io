@@ -558,7 +558,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/04/CUDA-concepts/" class="post-title-link" itemprop="url">CUDA concepts</a>
+            <a href="/2021/01/04/CUDA-concepts/" class="post-title-link" itemprop="url">CUDA notes</a>
         </h2>
 
         <div class="post-meta">
@@ -575,7 +575,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-19 14:17:18" itemprop="dateModified" datetime="2021-03-19T14:17:18+08:00">2021-03-19</time>
+                <time title="Modified: 2021-03-25 17:25:26" itemprop="dateModified" datetime="2021-03-25T17:25:26+08:00">2021-03-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -598,14 +598,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Thread-Hierarchy"><a href="#Thread-Hierarchy" class="headerlink" title="Thread Hierarchy"></a>Thread Hierarchy</h3><ul>
-<li><p>Block Grid</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/even-easier-introduction-cuda/">Nvidia’s blog</a>: You could think of that a grid wraps a bunch of blocks, a block wraps a bunch of threads, and a thread wraps a bunch of basic array elements.</li>
-<li><a target="_blank" rel="noopener" href="https://leimao.github.io/blog/CUDA-Concept-Block-Grid/">Another Blog</a> which contains figures illustrating the Block and Grid.</li>
-<li>Here is an simple example of add kernel. </li>
+          <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>CUDA provides three key abstractions: a hierarchy of thread groups, shared memories, and barrier synchronization, that provide a clear parallel structure to conventional C code for one thread of the hierarchy.</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__global__</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">float</span> *x, <span class="keyword">float</span> *y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> index = blockIdx.x * blockDim.x + threadIdx.x;</span><br><span class="line">  <span class="keyword">int</span> stride = blockDim.x * gridDim.x;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; n; i += stride)</span><br><span class="line">    y[i] = x[i] + y[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Thread-Hierarchy"><a href="#Thread-Hierarchy" class="headerlink" title="Thread Hierarchy"></a>Thread Hierarchy</h3><ul>
+<li><p>The programmer organizes these<br>threads into a hierarchy of grids of thread blocks. A thread<br>block is a set of concurrent threads that can cooperate<br>among themselves through barrier synchronization and<br>shared access to a memory space private to the block. A<br>grid is a set of thread blocks that may each be executed<br>independently and thus may execute in parallel.</p>
+</li>
+<li><p>Each thread is given a unique thread<br>ID number threadIdx within its thread block, numbered<br>0, 1, 2, …, blockDim–1, and each thread block is given a<br>unique block ID number blockIdx within its grid. CUDA<br>supports thread blocks containing up to 512 threads. </p>
+</li>
+<li><p><code>kernel&lt;&lt;&lt;dimGrid, dimBlock&gt;&gt;&gt;(... parameter list ...);</code> where dimGrid and dimBlock are three-element vectors<br>of type dim3 that specify the dimensions of the grid<br>in blocks and the dimensions of the blocks in threads,</p>
+</li>
+<li><p>CUDA requires that thread blocks execute independently. It must be possible to execute blocks<br>in any order, in parallel or in series. Different blocks have<br>no means of direct communication, although they may<br>coordinate their activities using atomic memory operations<br>on the global memory visible to all threads—by atomically incrementing queue pointers, for example.</p>
+</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/04/CUDA-concepts/#more" rel="contents">
