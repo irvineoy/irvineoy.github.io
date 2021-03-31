@@ -28,7 +28,7 @@
 <meta property="og:description" content="Tensorflow Op Register Firstly, Mutable Hashtable should be registered as an TensorFlow Op.  This Op will output a table_handle   12345678910111213REGISTER_OP(&quot;CUDAMutableHashTableV2&quot;)    .O">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-18T05:01:51.000Z">
-<meta property="article:modified_time" content="2021-03-19T01:36:27.694Z">
+<meta property="article:modified_time" content="2021-03-30T09:33:57.597Z">
 <meta property="article:tag" content="CUDA">
 <meta property="article:tag" content="TensorFlow">
 <meta property="article:tag" content="HashTable">
@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-19 09:36:27" itemprop="dateModified" datetime="2021-03-19T09:36:27+08:00">2021-03-19</time>
+                <time title="Modified: 2021-03-30 17:33:57" itemprop="dateModified" datetime="2021-03-30T17:33:57+08:00">2021-03-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,9 +243,9 @@
 <li>For example, it could have a cudaStream_t member, and Alloc(), Free(), MemcpyD2H() and MemcpyH2D() methods.<h3 id="GPU-Context-in-Tensorflow"><a href="#GPU-Context-in-Tensorflow" class="headerlink" title="GPU Context in Tensorflow"></a>GPU Context in Tensorflow</h3></li>
 <li>Tensorflow has it’s own module to handle GPU related resource, which is <strong>StreamExecutor</strong>.</li>
 <li>You could get <strong>se::Stream</strong> object by using <code>(OpKernelContext*) ctx -&gt; op_device_context()-&gt;stream()</code></li>
-<li>Alloc should use ctx-&gt;allocate_persistent() function. In this case, those memory will be managed by OpKernelContext, thus there is no need to free.</li>
+<li>Alloc should use <code>ctx-&gt;allocate_persistent()</code> function. In this case, those memory will be managed by OpKernelContext, thus there is no need to free.</li>
 <li>For memory copy, you could use <code>se::DeviceMemorBase()</code> to get a gpu pointer. Then use <code>(se::Stream*) stream_-&gt;ThenMemcpy</code> to transfer data between CPU memory and GPU memory.</li>
-<li>Get cudaStream_t will be a little bit harder. (TBD)</li>
+<li>About getting cudaStream_t:<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">se::Stream* stream_ = ctx -&gt; op_device_context() -&gt; stream();</span><br><span class="line"><span class="keyword">const</span> cudaStream_t* cu_stream_ptr = </span><br><span class="line">  CHECK_NOTNULL(<span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">const</span> cudaStream_t*&gt;(</span><br><span class="line">    stream_-&gt;implementation()-&gt;GpuStreamMemberHack()));</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>

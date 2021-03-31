@@ -464,7 +464,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-22 14:49:05" itemprop="dateModified" datetime="2021-03-22T14:49:05+08:00">2021-03-22</time>
+                <time title="Modified: 2021-03-31 17:54:43" itemprop="dateModified" datetime="2021-03-31T17:54:43+08:00">2021-03-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -487,17 +487,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="const"><a href="#const" class="headerlink" title="const"></a><a target="_blank" rel="noopener" href="http://duramecho.com/ComputerInformation/WhyHowCppConst.html">const</a></h2><ul>
+          <h2 id="PImpl-Idiom"><a href="#PImpl-Idiom" class="headerlink" title="PImpl Idiom"></a><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/pimpl-idiom-in-c-with-examples/">PImpl Idiom</a></h2><ul>
+<li>The PImpl Idiom (Pointer to IMPLementation) is a technique used for separating implementation from the interface. It minimizes header exposure and helps programmers to reduce build dependencies by moving the private data members in a separate class and accessing them through an opaque pointer.</li>
+<li>Advantages: Binary Compatibility, Less compilation time (Only the implementation file needs to be rebuild), Data Hiding</li>
+<li>Disadvantages: More memory allocation than with the default structure, More complex maintenance, Inheritance problem</li>
+</ul>
+<h2 id="RAII"><a href="#RAII" class="headerlink" title="RAII"></a><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/raii">RAII</a></h2><ul>
+<li>Resource Acquisition is Initialization binds the life cycle of a resource that must be acquired before use (allocated heap memory, thread of execution, open socket, open file, locked mutex, disk space, database connection and etc.) to the lifetime of an object.</li>
+<li>It also guarantees that all resources are released when the lifetime of their controlling object ends, in reverse order of acquisition.</li>
+</ul>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a target="_blank" rel="noopener" href="http://duramecho.com/ComputerInformation/WhyHowCppConst.html">const</a></h2><ul>
 <li>const int * abc: Declares that the abc is a variable pointer to a constant integer. </li>
 <li>int const * abc: Also declares that the abc is a variable pointer to a constant integer.</li>
 <li>int * const abc: A const pointer to a variable integer. Useful for storage that can be changed in value but not moved in memory.</li>
-<li>int const * const abc: A const pointer to a const integer. <h4 id="Parameter-passing"><a href="#Parameter-passing" class="headerlink" title="Parameter passing"></a>Parameter passing</h4></li>
+<li>int const * const abc: A const pointer to a const integer. <h3 id="Parameter-passing"><a href="#Parameter-passing" class="headerlink" title="Parameter passing"></a>Parameter passing</h3></li>
 <li>void Subroutine(big_structure_type &amp;Parameter);</li>
 <li>Using &amp; maybe because it is going to alter the variable passed to it or might just be to save copying time and there is no way to tell which it is. </li>
-<li>In this case, we could use the following signature for the second situation: void Subroutine(big_structure_type const &amp;Parameter).<h4 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object Oriented Programming"></a>Object Oriented Programming</h4></li>
+<li>In this case, we could use the following signature for the second situation: void Subroutine(big_structure_type const &amp;Parameter).<h3 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object Oriented Programming"></a>Object Oriented Programming</h3></li>
 <li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Class2</span>&#123;</span> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Method1</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="keyword">int</span> MemberVariable1;&#125;</span><br></pre></td></tr></table></figure></li>
 <li>Which will ban Method1 in Class2 from being anything which can attempt to alter any member variables in the object.</li>
-<li>Method1 could be called without having an object of Class2</li>
+<li>Method1 could be called without having an object of Class2<h3 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/constexpr">constexpr</a></h3></li>
+<li>The constexpr specifier declares that it is possible to evaluate the value of the function or variable at compile time. Such variables and functions can then be used where only compile time constant expressions are allowed.</li>
 </ul>
           <!--noindex-->
             <div class="post-button">

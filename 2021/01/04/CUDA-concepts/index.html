@@ -28,7 +28,7 @@
 <meta property="og:description" content="Introduction CUDA provides three key abstractions: a hierarchy of thread groups, shared memories, and barrier synchronization, that provide a clear parallel structure to conventional C code for one th">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-04T00:49:19.000Z">
-<meta property="article:modified_time" content="2021-03-25T09:31:39.642Z">
+<meta property="article:modified_time" content="2021-03-30T08:47:56.354Z">
 <meta property="article:tag" content="CUDA">
 <meta name="twitter:card" content="summary">
 
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-25 17:31:39" itemprop="dateModified" datetime="2021-03-25T17:31:39+08:00">2021-03-25</time>
+                <time title="Modified: 2021-03-30 16:47:56" itemprop="dateModified" datetime="2021-03-30T16:47:56+08:00">2021-03-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,6 +277,11 @@
 </li>
 <li><p>Any application that wants to run on future device architectures must load PTX, not binary code. This is because binary code is architecture-specific and therefore incompatible with future architectures, whereas PTX code is compiled to binary code at load time by the device driver.</p>
 </li>
+</ul>
+<h3 id="CUDA-C-Programming"><a href="#CUDA-C-Programming" class="headerlink" title="CUDA C Programming"></a>CUDA C Programming</h3><ul>
+<li><strong>__forceinline__:</strong> Normally the nvcc device code compiler will make it’s own decisions about when to inline a particular <strong>device</strong> function and generally speaking, you probably don’t need to worry about overriding that with the <strong>forceinline</strong> decorator/directive.</li>
+<li><strong>__device__</strong> and <strong>__host__:</strong> Sometimes the same functionality is needed in both the host and the device portions of CUDA code. To avoid code duplication, CUDA allows such functions to carry both host and device attributes, which means the compiler places one copy of that function into the host compilation flow (to be compiled by the host compiler, e.g. gcc or MSVC), and a second copy into the device compilation flow (to be compiled with NVIDIA’s CUDA compiler).</li>
+<li><strong>__global__:</strong> is a CUDA C keyword (declaration specifier) which says that the function: 1. Executes on device (GPU); 2. calls from host (CPU) code. However, <strong>__device__</strong> functions could only be called from device code.</li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/1365490.1365500">Scalable Parallel Programming with CUDA</a></li>
@@ -365,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Hierarchy"><span class="nav-number">2.</span> <span class="nav-text">Thread Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-Memory"><span class="nav-number">3.</span> <span class="nav-text">CUDA Memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-context"><span class="nav-number">4.</span> <span class="nav-text">CUDA context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Hierarchy"><span class="nav-number">2.</span> <span class="nav-text">Thread Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-Memory"><span class="nav-number">3.</span> <span class="nav-text">CUDA Memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-context"><span class="nav-number">4.</span> <span class="nav-text">CUDA context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-C-Programming"><span class="nav-number">5.</span> <span class="nav-text">CUDA C Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
