@@ -28,7 +28,7 @@
 <meta property="og:description" content="PImpl Idiom The PImpl Idiom (Pointer to IMPLementation) is a technique used for separating implementation from the interface. It minimizes header exposure and helps programmers to reduce build depende">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-07T06:25:50.000Z">
-<meta property="article:modified_time" content="2021-03-31T09:54:43.858Z">
+<meta property="article:modified_time" content="2021-04-06T12:07:27.848Z">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-31 17:54:43" itemprop="dateModified" datetime="2021-03-31T17:54:43+08:00">2021-03-31</time>
+                <time title="Modified: 2021-04-06 20:07:27" itemprop="dateModified" datetime="2021-04-06T20:07:27+08:00">2021-04-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -247,6 +247,22 @@
 </ul>
 <h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h2><ul>
 <li>Unlike static_cast, but like const_cast, the reinterpret_cast expression does not compile to any CPU instructions. It is purely a compiler directive which instructs the compiler to treat the sequence of bits (object representation) of expression as if it had the type new_type.</li>
+</ul>
+<h2 id="std-atomic-lt-gt"><a href="#std-atomic-lt-gt" class="headerlink" title="std::atomic&lt;&gt;"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/31978324/what-exactly-is-stdatomic">std::atomic&lt;&gt;</a></h2><ul>
+<li>Each instantiation and full specialization of <code>std::atomic&lt;&gt;</code> represents a type that different threads can simultaneously operate on (their instances), without raising undefined behavior.</li>
+</ul>
+<h2 id="std-vector-emplace-back"><a href="#std-vector-emplace-back" class="headerlink" title="std::vector::emplace_back"></a>std::vector::emplace_back</h2><ul>
+<li>This new element is constructed in place using args as the arguments for its constructor. While <code>push_back</code> will construct the new element in the other place and move it the end of the vector and after moving it will destroy the first created object. </li>
+</ul>
+<h2 id="std-thread"><a href="#std-thread" class="headerlink" title="std:thread"></a>std:thread</h2><ul>
+<li>Threads begin execution immediately upon construction of the associated thread object (pending any OS scheduling delays), starting at the top-level function provided as a constructor argument.</li>
+</ul>
+<h2 id="std-future"><a href="#std-future" class="headerlink" title="std:future"></a><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/thread/future">std:future</a></h2><p>The class template <code>std::future</code> provides a mechanism to access the result of asynchronous operations:</p>
+<ul>
+<li>An asynchronous operation (created via <code>std::async</code>, <code>std::packaged_task</code>, or <code>std::promise</code>) can provide a <code>std::future</code> object to the creator of that asynchronous operation.</li>
+<li>The creator of the asynchronous operation can then use a variety of methods to query, wait for, or extract a value from the <code>std::future</code>. These methods may block if the asynchronous operation has not yet provided a value.</li>
+<li>When the asynchronous operation is ready to send a result to the creator, it can do so by modifying shared state (e.g. <code>std::promise::set_value</code>) that is linked to the creator’s <code>std::future</code>.</li>
+<li>Note that <code>std::future</code> references shared state that is not shared with any other asynchronous return objects (as opposed to <code>std::shared_future</code>).</li>
 </ul>
 <!-- https://github.com/huihut/interview#cc -->
     </div>
@@ -331,7 +347,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PImpl-Idiom"><span class="nav-number">1.</span> <span class="nav-text">PImpl Idiom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAII"><span class="nav-number">2.</span> <span class="nav-text">RAII</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">3.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter-passing"><span class="nav-number">3.1.</span> <span class="nav-text">Parameter passing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-Oriented-Programming"><span class="nav-number">3.2.</span> <span class="nav-text">Object Oriented Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constexpr"><span class="nav-number">3.3.</span> <span class="nav-text">constexpr</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inline"><span class="nav-number">4.</span> <span class="nav-text">Inline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reinterpret-cast"><span class="nav-number">5.</span> <span class="nav-text">reinterpret_cast</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PImpl-Idiom"><span class="nav-number">1.</span> <span class="nav-text">PImpl Idiom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAII"><span class="nav-number">2.</span> <span class="nav-text">RAII</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">3.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter-passing"><span class="nav-number">3.1.</span> <span class="nav-text">Parameter passing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-Oriented-Programming"><span class="nav-number">3.2.</span> <span class="nav-text">Object Oriented Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constexpr"><span class="nav-number">3.3.</span> <span class="nav-text">constexpr</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inline"><span class="nav-number">4.</span> <span class="nav-text">Inline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reinterpret-cast"><span class="nav-number">5.</span> <span class="nav-text">reinterpret_cast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#std-atomic-lt-gt"><span class="nav-number">6.</span> <span class="nav-text">std::atomic&lt;&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#std-vector-emplace-back"><span class="nav-number">7.</span> <span class="nav-text">std::vector::emplace_back</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#std-thread"><span class="nav-number">8.</span> <span class="nav-text">std:thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#std-future"><span class="nav-number">9.</span> <span class="nav-text">std:future</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -347,20 +363,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

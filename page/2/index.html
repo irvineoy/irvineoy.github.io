@@ -160,6 +160,203 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/07/Docker-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/07/Docker-notes/" class="post-title-link" itemprop="url">Docker notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-08 01:52:23" itemprop="dateCreated datePublished" datetime="2021-03-08T01:52:23+08:00">2021-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-16 15:41:41" itemprop="dateModified" datetime="2021-03-16T15:41:41+08:00">2021-03-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Run-and-exec"><a href="#Run-and-exec" class="headerlink" title="Run and exec"></a>Run and exec</h3><ul>
+<li>docker run --ipc=host --gpus all --entrypoint=/bin/bash -it -d -v /home/name:/home/name -e TZ=Asia/Beijing --name ouyang tensorflow/tensorflow:2.4.1-gpu</li>
+<li>run flags:<ul>
+<li>--pid=host: Use it if you want your container to share the host’s process namespace, basically allowing processes within the container to see all of the processes on the system.</li>
+<li>--ipc=private|shareable|host|container:name-or-id: IPC namespace provides separation of named shared memory segments, semaphores and message queues. Shared memory segments is commenly used by databases and C/OpenMPI, C++/using boost libraries and etc.</li>
+</ul>
+</li>
+<li>docker exec -it ${container_name} /bin/bash</li>
+<li>docker exec -it -w /home/name ouyang sh -c “tmux a” /bin/bash</li>
+</ul>
+<h3 id="System"><a href="#System" class="headerlink" title="System"></a>System</h3><ul>
+<li>docker system df</li>
+<li>docker system df -v</li>
+<li>sudo service docker start/stop</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/07/Docker-notes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/02/24/TensorFlow-HashTable-Operator-Source-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/24/TensorFlow-HashTable-Operator-Source-note/" class="post-title-link" itemprop="url">TensorFlow HashTable Operator Source note</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-24 13:29:10" itemprop="dateCreated datePublished" datetime="2021-02-24T13:29:10+08:00">2021-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-18 21:14:10" itemprop="dateModified" datetime="2021-03-18T21:14:10+08:00">2021-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Structure-of-TensorFlow-HashTable-source-code"><a href="#Structure-of-TensorFlow-HashTable-source-code" class="headerlink" title="Structure of TensorFlow HashTable source code"></a>Structure of TensorFlow HashTable source code</h2><h3 id="core-kernels-lookup-table-op-h"><a href="#core-kernels-lookup-table-op-h" class="headerlink" title="core/kernels/lookup_table_op.h"></a>core/kernels/lookup_table_op.h</h3><ul>
+<li><p>class LookupTableOp: </p>
+<ul>
+<li>This class inherits from the OpKernel class and supports different table implementations specified by the <strong>Container</strong> template. </li>
+<li>It has a member <code>PersistentTensor table_handle_</code>. This member is stored in the OpKernelContext by <code>ctx-&gt;allocate_persistent</code>. </li>
+</ul>
+</li>
+<li><p><strong>Container</strong> must be inherited from LookupInterface. Container example: MutableDenseHashTable, MutableHashTableOfTensors and etc. </p>
+</li>
+<li><p>class HashTable: This class inherits from InitializableLookupTable class and wraps an flat_hash_map, where the key and value data type is specified. Once the table is marked as initialized it becomes read-only.</p>
+</li>
+</ul>
+<h3 id="core-kernels-lookup-table-op-cc"><a href="#core-kernels-lookup-table-op-cc" class="headerlink" title="core/kernels/lookup_table_op.cc"></a>core/kernels/lookup_table_op.cc</h3><ul>
+<li><p>LookupTableOpKernel: This class inherits from the OpKernel.</p>
+</li>
+<li><p>It will make sure the table_handle_ will be the first input for ops such as <code>LookupTableFind</code>, <code>LookupTableInsert</code>, etc. </p>
+</li>
+<li><p>This class will be inherited by operations like Remove, Insert, Find, Size, Export, Import and etc. For example:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LookupTableOpKernel</span> :</span> <span class="keyword">public</span> OpKernel;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LookupTableFindOp</span> :</span> <span class="keyword">public</span> LookupTableOpKernel;</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;LookupTableFindV2&quot;</span>).LookupTableFindOp);</span><br></pre></td></tr></table></figure></li>
+<li><p>Here are some examples of hashtable kernel builder:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;HashTableV2&quot;</span>), LookupTableOp&lt;lookup::HashTable&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;MutableHashTableV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfScalars&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;MutableHashTableOfTensorsV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfTensors&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/24/TensorFlow-HashTable-Operator-Source-note/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/31/CMake-notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -443,197 +640,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/08/Nvidia-GPU-Architecture/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/Nvidia-GPU-Architecture/" class="post-title-link" itemprop="url">Nvidia GPU Architecture</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-09 07:41:47" itemprop="dateCreated datePublished" datetime="2021-01-09T07:41:47+08:00">2021-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-18 21:13:51" itemprop="dateModified" datetime="2021-03-18T21:13:51+08:00">2021-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CUDA/" itemprop="url" rel="index"><span itemprop="name">CUDA</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-
-<h3 id="TBD"><a href="#TBD" class="headerlink" title="TBD"></a>TBD</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.google.com/search?q=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;oq=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;aqs=chrome..69i57.4287j0j1&amp;sourceid=chrome&amp;ie=UTF-8">https://www.google.com/search?q=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;oq=nvidia%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94&amp;aqs=chrome..69i57.4287j0j1&amp;sourceid=chrome&amp;ie=UTF-8</a></li>
-<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline">https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shouhuxianjian/p/9817243.html">https://www.cnblogs.com/shouhuxianjian/p/9817243.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://jcf94.com/">https://jcf94.com/</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/267104699/answer/379444094">https://www.zhihu.com/question/267104699/answer/379444094</a></li>
-</ul>
-<h3 id="CUDA-core"><a href="#CUDA-core" class="headerlink" title="CUDA core"></a><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-a-CUDA-core">CUDA core</a></h3><ul>
-<li><p>A pipeline that can do 32bit floating point addition, 32bit floating point multiplication, 32bit to 8bit integer operations such as shifts, adds, muls and similar operations and also generates memory requests on its SM unit to be served with data to keep constantly working on data. Also requests special function calculations and gets synchronized by SM unit for proper calculation of parallel algorithms.</p>
-</li>
-<li><p>When a CUDA kernel is running, it is cloned on all “CUDA threads” and these “CUDA threads” flow through all “CUDA pipelines”. Each pipeline is capable of up to 16-way threading. This lets all of its compute resources (integer, floatingpoint, data requests, ..) be efficiently used. When a “warp” of “CUDA threads” is eligible for issuing, it takes 32 “CUDA pipelines” to run on and gets locked onto it. This makes 32 “CUDA pipelines” work as a team, to implicitly do a lock-step iteration of CUDA kernel instructions. This happens concurrently with other “warps” too.</p>
-</li>
-<li><p>“CUDA core” is a “pipeline” which is used for “mapping” some “CUDA threads” onto them in a synchronized manner, to efficiently take on continuous computation.</p>
-</li>
-<li><p>Number of CUDA cores is only important when all a kernel do is just 32 bit multiplication and 32 bit addition. When it needs 64bit operations, then you should look at other parts such as “double precision” versions. They are generally a scarce resource in mainstream hardware. Also special function units are as scarce as 1/4 of “cores”. So if you are doing just square root calculations, you should take it into consideration. For example, Kepler architecture contains only 1/6 of the number of cores, as special function units. Latest generation GPUs generally have 1/4 ratio so they are better at that.</p>
-</li>
-<li><p>Because of architectual differencies, a CUDA core on an old architecture is not same performance as a new architecure CUDA core (pipeline). You shouldn’t compare Kepler’s cores to Volta’s cores. Volta has much more bandwidth per CUDA pipeline than what Kepler had. So, 1 GFLOPS of Volta is actually like 1.5-2.0 GFLOPS of Kepler.</p>
-</li>
-<li><p>CUDA core is not a full core, it is a pipeline. It just does requests on some other resources and responds with results. It resembles a 16-thread pentium with single core without i/o.</p>
-</li>
-<li></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/04/CUDA-concepts/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/04/CUDA-concepts/" class="post-title-link" itemprop="url">CUDA notes</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-04 08:49:19" itemprop="dateCreated datePublished" datetime="2021-01-04T08:49:19+08:00">2021-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-30 16:47:56" itemprop="dateModified" datetime="2021-03-30T16:47:56+08:00">2021-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CUDA/" itemprop="url" rel="index"><span itemprop="name">CUDA</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
-<li>CUDA provides three key abstractions: a hierarchy of thread groups, shared memories, and barrier synchronization, that provide a clear parallel structure to conventional C code for one thread of the hierarchy.</li>
-</ul>
-<h3 id="Thread-Hierarchy"><a href="#Thread-Hierarchy" class="headerlink" title="Thread Hierarchy"></a>Thread Hierarchy</h3><ul>
-<li><p>The programmer organizes these threads into a hierarchy of grids of <strong>thread blocks</strong>. A thread block is a set of concurrent threads that can cooperate among themselves through barrier synchronization and shared access to a memory space private to the block. A grid is a set of thread blocks that may each be executed independently and thus may execute in parallel.</p>
-</li>
-<li><p>Each thread is given a unique thread ID number <strong>threadIdx</strong> within its thread block, numbered<br>0, 1, 2, …, blockDim–1, and each thread block is given a unique block ID number <strong>blockIdx</strong> within its grid. CUDA supports thread blocks containing up to 512 threads. </p>
-</li>
-<li><p><code>kernel&lt;&lt;&lt;dimGrid, dimBlock&gt;&gt;&gt;(... parameter list ...);</code> where <strong>dimGrid</strong> and <strong>dimBlock</strong> are three-element vectors of type dim3 that specify the dimensions of the grid in blocks and the dimensions of the blocks in threads.</p>
-</li>
-<li><p>CUDA requires that thread blocks execute independently. It must be possible to execute blocks</p>
-</li>
-</ul>
-<p><strong>in any order</strong>, in parallel or in series. Different blocks have no means of direct communication, although they may coordinate their activities using atomic memory operations on the global memory visible to all threads—by atomically incrementing queue pointers, for example.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/04/CUDA-concepts/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -705,20 +711,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

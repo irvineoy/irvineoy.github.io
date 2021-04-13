@@ -160,6 +160,163 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/04/13/Deploy-custom-GitLab-CI-runner/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/13/Deploy-custom-GitLab-CI-runner/" class="post-title-link" itemprop="url">Deploy custom GitLab CI runner</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-04-13 08:28:35 / Modified: 17:52:31" itemprop="dateCreated datePublished" datetime="2021-04-13T08:28:35+08:00">2021-04-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><ul>
+<li><strong>Runner</strong> is an application that works with GitLab CI/CD to run jobs in a pipline.</li>
+<li><strong>Runner</strong> can run multiple jobs and use multiple tokens with multiple servers.</li>
+<li>An <strong>executor</strong> determines the environment each job runs in.</li>
+<li>Jobs will be executed by executor in different platforms: Local, Docker, Docker with SSH, remote ssh server</li>
+<li>When you install GitLab Runner in a Docker container and choose the Docker executor to run your jobs, it’s sometimes referred to as a <code>“Docker-in-Docker” </code>configuration.</li>
+<li>Specify the name of the runner or its tags in your <code>.gitlab-ci.yml</code> file. Then, when you commit to your repository, the pipeline runs, and the runner’s executor processes the commands.</li>
+</ul>
+<h2 id="Docker-in-Docker-configuration"><a href="#Docker-in-Docker-configuration" class="headerlink" title="Docker in Docker configuration"></a>Docker in Docker configuration</h2><h3 id="Run-GitLab-Runner-in-a-container"><a href="#Run-GitLab-Runner-in-a-container" class="headerlink" title="Run GitLab Runner in a container"></a>Run GitLab Runner in a container</h3><ul>
+<li>You could use system volume mounts to start the Runner container  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name gitlab-runner --restart always \</span><br><span class="line">    -v /srv/gitlab-runner/config:/etc/gitlab-runner \</span><br><span class="line">    -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">    gitlab/gitlab-runner:latest</span><br></pre></td></tr></table></figure>
+  note: On macOS, use /Users/Shared instead of /srv .</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/13/Deploy-custom-GitLab-CI-runner/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/04/13/Foundation-of-Computer-System/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/13/Foundation-of-Computer-System/" class="post-title-link" itemprop="url">Foundation of Computer System</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-04-13 08:08:59 / Modified: 16:22:07" itemprop="dateCreated datePublished" datetime="2021-04-13T08:08:59+08:00">2021-04-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/System/" itemprop="url" rel="index"><span itemprop="name">System</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="SELinux"><a href="#SELinux" class="headerlink" title="SELinux"></a>SELinux</h2><ul>
+<li><strong>Security-Enhanced Linux (SELinux)</strong> is a security architecture for Linux® systems that allows administrators to have more control over who can access the system. </li>
+<li>With <strong>Discretionary access control (DAC)</strong>, files and processes have owners. You can have the user own a file, a group own a file, or other, which can be anyone else. Users have the ability to change permissions on their own files. The root user has full access control with a DAC system. If you have root access, then you can access any other user’s files or do whatever you want on the system. </li>
+<li></li>
+<li>But on <strong>mandatory access control (MAC)</strong> systems like SELinux, there is administratively set policy around access. Even if the DAC settings on your home directory are changed, an SELinux policy in place to prevent another user or process from accessing the directory will keep the system safe. </li>
+<li>Traditionally, Linux and UNIX systems have used DAC. SELinux is an example of a MAC system for Linux.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/13/Foundation-of-Computer-System/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/18/GPU-HashTable-as-a-custom-op-for-TensorFlow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,203 +571,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/07/Docker-notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/07/Docker-notes/" class="post-title-link" itemprop="url">Docker notes</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-08 01:52:23" itemprop="dateCreated datePublished" datetime="2021-03-08T01:52:23+08:00">2021-03-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-16 15:41:41" itemprop="dateModified" datetime="2021-03-16T15:41:41+08:00">2021-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Run-and-exec"><a href="#Run-and-exec" class="headerlink" title="Run and exec"></a>Run and exec</h3><ul>
-<li>docker run --ipc=host --gpus all --entrypoint=/bin/bash -it -d -v /home/name:/home/name -e TZ=Asia/Beijing --name ouyang tensorflow/tensorflow:2.4.1-gpu</li>
-<li>run flags:<ul>
-<li>--pid=host: Use it if you want your container to share the host’s process namespace, basically allowing processes within the container to see all of the processes on the system.</li>
-<li>--ipc=private|shareable|host|container:name-or-id: IPC namespace provides separation of named shared memory segments, semaphores and message queues. Shared memory segments is commenly used by databases and C/OpenMPI, C++/using boost libraries and etc.</li>
-</ul>
-</li>
-<li>docker exec -it ${container_name} /bin/bash</li>
-<li>docker exec -it -w /home/name ouyang sh -c “tmux a” /bin/bash</li>
-</ul>
-<h3 id="System"><a href="#System" class="headerlink" title="System"></a>System</h3><ul>
-<li>docker system df</li>
-<li>docker system df -v</li>
-<li>sudo service docker start/stop</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/07/Docker-notes/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/02/24/TensorFlow-HashTable-Operator-Source-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/squareSelfie.png">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ouyang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/24/TensorFlow-HashTable-Operator-Source-note/" class="post-title-link" itemprop="url">TensorFlow HashTable Operator Source note</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-24 13:29:10" itemprop="dateCreated datePublished" datetime="2021-02-24T13:29:10+08:00">2021-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-18 21:14:10" itemprop="dateModified" datetime="2021-03-18T21:14:10+08:00">2021-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Structure-of-TensorFlow-HashTable-source-code"><a href="#Structure-of-TensorFlow-HashTable-source-code" class="headerlink" title="Structure of TensorFlow HashTable source code"></a>Structure of TensorFlow HashTable source code</h2><h3 id="core-kernels-lookup-table-op-h"><a href="#core-kernels-lookup-table-op-h" class="headerlink" title="core/kernels/lookup_table_op.h"></a>core/kernels/lookup_table_op.h</h3><ul>
-<li><p>class LookupTableOp: </p>
-<ul>
-<li>This class inherits from the OpKernel class and supports different table implementations specified by the <strong>Container</strong> template. </li>
-<li>It has a member <code>PersistentTensor table_handle_</code>. This member is stored in the OpKernelContext by <code>ctx-&gt;allocate_persistent</code>. </li>
-</ul>
-</li>
-<li><p><strong>Container</strong> must be inherited from LookupInterface. Container example: MutableDenseHashTable, MutableHashTableOfTensors and etc. </p>
-</li>
-<li><p>class HashTable: This class inherits from InitializableLookupTable class and wraps an flat_hash_map, where the key and value data type is specified. Once the table is marked as initialized it becomes read-only.</p>
-</li>
-</ul>
-<h3 id="core-kernels-lookup-table-op-cc"><a href="#core-kernels-lookup-table-op-cc" class="headerlink" title="core/kernels/lookup_table_op.cc"></a>core/kernels/lookup_table_op.cc</h3><ul>
-<li><p>LookupTableOpKernel: This class inherits from the OpKernel.</p>
-</li>
-<li><p>It will make sure the table_handle_ will be the first input for ops such as <code>LookupTableFind</code>, <code>LookupTableInsert</code>, etc. </p>
-</li>
-<li><p>This class will be inherited by operations like Remove, Insert, Find, Size, Export, Import and etc. For example:</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LookupTableOpKernel</span> :</span> <span class="keyword">public</span> OpKernel;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LookupTableFindOp</span> :</span> <span class="keyword">public</span> LookupTableOpKernel;</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;LookupTableFindV2&quot;</span>).LookupTableFindOp);</span><br></pre></td></tr></table></figure></li>
-<li><p>Here are some examples of hashtable kernel builder:</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;HashTableV2&quot;</span>), LookupTableOp&lt;lookup::HashTable&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;MutableHashTableV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfScalars&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line">REGISTER_KERNEL_BUILDER(Name(<span class="string">&quot;MutableHashTableOfTensorsV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfTensors&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br></pre></td></tr></table></figure></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/24/TensorFlow-HashTable-Operator-Source-note/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -682,20 +642,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
