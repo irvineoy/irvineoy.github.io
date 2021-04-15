@@ -28,7 +28,7 @@
 <meta property="og:description" content="Concepts Runner is an application that works with GitLab CI&#x2F;CD to run jobs in a pipline. Runner can run multiple jobs and use multiple tokens with multiple servers. An executor determines the environm">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-13T00:28:35.000Z">
-<meta property="article:modified_time" content="2021-04-13T09:52:31.665Z">
+<meta property="article:modified_time" content="2021-04-15T07:29:43.709Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://irvineoy.github.com/2021/04/13/Deploy-custom-GitLab-CI-runner/">
@@ -187,10 +187,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-04-13 08:28:35 / Modified: 17:52:31" itemprop="dateCreated datePublished" datetime="2021-04-13T08:28:35+08:00">2021-04-13</time>
+              <time title="Created: 2021-04-13 08:28:35" itemprop="dateCreated datePublished" datetime="2021-04-13T08:28:35+08:00">2021-04-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-04-15 15:29:43" itemprop="dateModified" datetime="2021-04-15T15:29:43+08:00">2021-04-15</time>
+              </span>
 
           
 
@@ -219,6 +225,7 @@
 
 <ul>
 <li>Then, you need to register this runner. By execute the following script, you will be asked to provide GitLab instance URL, token to register the runner, tags associated with the runner, runner exector (such as docker), default docker image and etc.  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register</span><br></pre></td></tr></table></figure></li>
+<li>Finally, you need update the ci file. For a job, if you want to use the specific runner we just registered, you need add <code>tags</code> field for that job.</li>
 </ul>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner">https://docs.gitlab.com/runner</a></p>
 
