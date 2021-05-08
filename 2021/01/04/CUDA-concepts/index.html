@@ -28,7 +28,7 @@
 <meta property="og:description" content="Introduction CUDA provides three key abstractions: a hierarchy of thread groups, shared memories, and barrier synchronization, that provide a clear parallel structure to conventional C code for one th">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-04T00:49:19.000Z">
-<meta property="article:modified_time" content="2021-03-30T08:47:56.354Z">
+<meta property="article:modified_time" content="2021-04-26T09:06:01.074Z">
 <meta property="article:tag" content="CUDA">
 <meta name="twitter:card" content="summary">
 
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-30 16:47:56" itemprop="dateModified" datetime="2021-03-30T16:47:56+08:00">2021-03-30</time>
+                <time title="Modified: 2021-04-26 17:06:01" itemprop="dateModified" datetime="2021-04-26T17:06:01+08:00">2021-04-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,6 +276,12 @@
 <li><p>Within a CUDA context, kernels are explicitly loaded as PTX or binary objects by the host code as described in Module. Kernels written in C must therefore be compiled separately into PTX or binary objects. Kernels are launched using API entry points as described in Kernel Execution.</p>
 </li>
 <li><p>Any application that wants to run on future device architectures must load PTX, not binary code. This is because binary code is architecture-specific and therefore incompatible with future architectures, whereas PTX code is compiled to binary code at load time by the device driver.</p>
+</li>
+</ul>
+<h3 id="Flow-control-instruction"><a href="#Flow-control-instruction" class="headerlink" title="Flow control instruction"></a>Flow control instruction</h3><ul>
+<li><p>Avoid different execution paths within the same warp.</p>
+</li>
+<li><p>Any flow control instruction (if, switch, do, for, while) can significantly affect the instruction throughput by causing threads of the same warp to diverge; that is, to follow different execution paths. If this happens, the different execution paths must be serialized, since all of the threads of a warp share a program counter; this increases the total number of instructions executed for this warp. When all the different execution paths have completed, the threads converge back to the same execution path.</p>
 </li>
 </ul>
 <h3 id="CUDA-C-Programming"><a href="#CUDA-C-Programming" class="headerlink" title="CUDA C Programming"></a>CUDA C Programming</h3><ul>
@@ -370,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Hierarchy"><span class="nav-number">2.</span> <span class="nav-text">Thread Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-Memory"><span class="nav-number">3.</span> <span class="nav-text">CUDA Memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-context"><span class="nav-number">4.</span> <span class="nav-text">CUDA context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-C-Programming"><span class="nav-number">5.</span> <span class="nav-text">CUDA C Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Hierarchy"><span class="nav-number">2.</span> <span class="nav-text">Thread Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-Memory"><span class="nav-number">3.</span> <span class="nav-text">CUDA Memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-context"><span class="nav-number">4.</span> <span class="nav-text">CUDA context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flow-control-instruction"><span class="nav-number">5.</span> <span class="nav-text">Flow control instruction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CUDA-C-Programming"><span class="nav-number">6.</span> <span class="nav-text">CUDA C Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
