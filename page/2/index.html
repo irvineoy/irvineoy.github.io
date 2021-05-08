@@ -477,7 +477,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-07 17:28:44" itemprop="dateModified" datetime="2021-05-07T17:28:44+08:00">2021-05-07</time>
+                <time title="Modified: 2021-05-08 14:47:18" itemprop="dateModified" datetime="2021-05-08T14:47:18+08:00">2021-05-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -506,17 +506,17 @@
 </ul>
 <h3 id="Git-Move-files-from-one-repository-to-another-while-preserving-git-history"><a href="#Git-Move-files-from-one-repository-to-another-while-preserving-git-history" class="headerlink" title="Git Move files from one repository to another while preserving git history"></a>Git Move files from one repository to another while preserving git history</h3><ol>
 <li>mkdir merge_repo &amp;&amp; cd merge_repo</li>
-<li>git clone –branch master –origin origin –progress -v git@github:xxx/projectA.git</li>
+<li>git clone --branch master --origin origin --progress -v git@github:xxx/projectA.git</li>
 <li>cd projectA</li>
 <li>git remote rm origin </li>
-<li>git filter-branch –subdirectory-filter subfolder/FOLDER_TO_KEEP – –all</li>
-<li>git reset –hard &amp;&amp; git gc –aggressive &amp;&amp; git prune &amp;&amp; git clean -fd</li>
+<li>git filter-branch --subdirectory-filter subfolder/FOLDER_TO_KEEP -- --all</li>
+<li>git reset --hard &amp;&amp; git gc --aggressive &amp;&amp; git prune &amp;&amp; git clean -fd</li>
 <li>(optional) mkdir anotherfolder &amp;&amp; mv * anotherfolder &amp;&amp; git add . &amp;&amp; git commit</li>
 <li>cd .. </li>
 <li>git clone &lt;git repository B url&gt; projectB</li>
 <li>cd projectB</li>
 <li>git remote add repoA ../projectA</li>
-<li>git pull repoA master –allow-unrelated-histories</li>
+<li>git pull repoA master --allow-unrelated-histories</li>
 <li>git remote rm repoA</li>
 <li>git push</li>
 </ol>
