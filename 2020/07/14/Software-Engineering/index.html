@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"irvineoy.github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Testing Testing is a whole-team responsibility Different roles and different testings: Developers: unit, integration, system, acceptance Disigners: integration Customers: acceptance Analysts: acceptan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Software Engineering">
+<meta property="og:url" content="https://irvineoy.github.com/2020/07/14/Software-Engineering/index.html">
+<meta property="og:site_name" content="Ouyang&#39;s Blog">
+<meta property="og:description" content="Testing Testing is a whole-team responsibility Different roles and different testings: Developers: unit, integration, system, acceptance Disigners: integration Customers: acceptance Analysts: acceptan">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-15T03:00:21.000Z">
+<meta property="article:modified_time" content="2022-02-16T03:49:36.090Z">
+<meta property="article:tag" content="Unit Test">
+<meta property="article:tag" content="Software Engineering">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://irvineoy.github.com/2020/07/14/Software-Engineering/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Software Engineering | Ouyang's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ouyang's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Working on ML Infra</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2020/07/14/Software-Engineering/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Software Engineering
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-15 11:00:21" itemprop="dateCreated datePublished" datetime="2020-07-15T11:00:21+08:00">2020-07-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-16 11:49:36" itemprop="dateModified" datetime="2022-02-16T11:49:36+08:00">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/07/14/Software-Engineering/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/14/Software-Engineering/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><ul>
+<li>Testing is a whole-team responsibility</li>
+<li>Different roles and different testings:<ul>
+<li>Developers: unit, integration, system, acceptance</li>
+<li>Disigners: integration</li>
+<li>Customers: acceptance</li>
+<li>Analysts: acceptance</li>
+<li>Test engineers and QA team: system, acceptance, exploratory</li>
+<li>End Users: beta</li>
+<li>Architects: integration, system</li>
+</ul>
+</li>
+<li>Varification: Software is right; Validation: We build the right software.</li>
+<li>Fault (Also called defect, testing is aim to reveal this) -&gt; Error -&gt; Failure (Test will cause this)<span id="more"></span></li>
+<li>Unit Testing: Individual components; Integration&#x2F;Functional Testing: Groups of related components; System&#x2F;Acceptance Testing: System as whole;</li>
+</ul>
+<h2 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h2><h3 id="Package-Diagrams"><a href="#Package-Diagrams" class="headerlink" title="Package Diagrams"></a>Package Diagrams</h3><ul>
+<li>Package diagrams are used to reflect the organization of packages and their elements. When used to represent class elements, package diagrams provide a visualization of the namespaces. </li>
+<li>Package Merge: A «merge» connector between two packages defines an implicit generalization between elements in the source package, and elements with the same name in the target package. The source element definitions are expanded to include the element definitions contained in the target.</li>
+<li>Package Import: The «import» connector indicates that the elements within the target package, which in this example is a single class, use unqualified names when being referred to from the source package. The source package’s namespace gains access to the target classes.</li>
+</ul>
+<h3 id="Class-Diagrams"><a href="#Class-Diagrams" class="headerlink" title="Class Diagrams"></a>Class Diagrams</h3><ul>
+<li>Class Notation: “+” means public level of visibility; “-“ means Private level; “#” allows an operation, or attribute, to be defined as protected; “~” symbol indicates package visibility;</li>
+<li>Associations: An association implies two model elements have a relationship (knows-about) - usually implemented as an instance variable in one class. </li>
+<li>Aggregations are used to depict elements which are made up of smaller components (is-part-of). Aggregation relationships are shown by a white diamond-shaped arrowhead pointing towards the target or parent class.</li>
+<li>Inheritance (is-a-kind-of)</li>
+</ul>
+<h3 id="Deployment-diagram"><a href="#Deployment-diagram" class="headerlink" title="Deployment diagram,"></a>Deployment diagram,</h3><ul>
+<li>Deployment diagram models the run-time architecture of a system. It shows the configuration of the hardware elements (nodes) and shows how software elements and artifacts are mapped onto those nodes.</li>
+<li>An instance can be distinguished from a node by the fact that its name is underlined and has a colon before its base node type. </li>
+<li>In the context of a deployment diagram, an association represents a communication path between nodes.</li>
+</ul>
+<h2 id="SOLID-Principle"><a href="#SOLID-Principle" class="headerlink" title="SOLID Principle"></a>SOLID Principle</h2><ul>
+<li><strong>Single-responsibility principle</strong>: It states that a class should only have a single responsibility, which means only changes to one part of the software’s specification should be able to affect the specification of the class.</li>
+<li><strong>Open-closed principle</strong>: It states that a class should be extendable, but closed to modification. That simply means any desired additional behavior should be added to another class that extends your original class instead of modifying it.</li>
+<li><strong>Liskov substitution principle</strong>: This principle states that a derived class must be substitutable for its base class.</li>
+<li><strong>Interface segregation principle</strong>: This principle states that client-specific interfaces are better than one general-purpose interface.</li>
+<li><strong>Dependency inversion Principle</strong>: This principle states that the high-level module must not depend on the low-level module, but they should depend on abstractions.</li>
+</ul>
+<h2 id="Architecture-haiku"><a href="#Architecture-haiku" class="headerlink" title="Architecture haiku"></a>Architecture haiku</h2><ul>
+<li>Introduction: An architecture haiku aims to capture the architecture’s most important details on a single piece of paper.</li>
+<li>It includes:<ul>
+<li>A brief summary of the overall solution</li>
+<li>A list of important technical </li>
+<li>A high-level summary of key functional requirements</li>
+<li>A prioritized list of quality attributes</li>
+<li>A brief explanation of design decisions, including a rationale and tradeoffs</li>
+<li>A list of architectural styles and patterns used </li>
+<li>Only those diagrams that add meaning beyond the information already on the page</li>
+</ul>
+</li>
+<li>Haiku creates a <em>cognitive trigger</em> that facilitates the recall of essential contextual information about a design decision.</li>
+<li>Treat the Haiku as a living document</li>
+<li>Use the Haiku as an Outline for future documentation</li>
+</ul>
+<h2 id="Design-Partten"><a href="#Design-Partten" class="headerlink" title="Design Partten"></a>Design Partten</h2><ul>
+<li><strong>Singleton</strong>: Ensure that only one instance of a class is created. Provide a global point of access to the instance.</li>
+<li><strong>Bridge</strong>:<ul>
+<li>Expecting implementation of a class to change in anticipation of new vendor, new technology, or future optimizations</li>
+<li>Intent: Decouple interfaces of a class from its implementations so that the two can vary independently.</li>
+</ul>
+</li>
+<li><strong>Observer</strong>:<ul>
+<li>Then change of a state in one object must be reflected in another object without keeping the objects tightly coupled</li>
+<li>Intent: maintain consistency across the states of one publisher and several subscribers.</li>
+</ul>
+</li>
+<li><strong>Composite</strong>:<ul>
+<li>You want to deal with objects uniformly regardless of position in an object hierarchy</li>
+<li>Intent: Compose objects into tree structures to represent part-whole hierarchies.</li>
+<li>Window and panel are composites that may contain other windows or panels.</li>
+</ul>
+</li>
+<li><strong>Facade</strong><ul>
+<li>It is desirable to isolate a complex subsystem through a simple interface</li>
+<li>Intent: reduce coupling among a set of related classes and the rest of the system</li>
+</ul>
+</li>
+<li><strong>Strategy</strong><ul>
+<li>It is desirable to make an object adaptable by allowing clients to change its behavior dynamically</li>
+<li>Intent: define a family of algorithms, encapsulate each one and make them interchangeable at runtime.</li>
+</ul>
+</li>
+<li><strong>Factory Method</strong><ul>
+<li>You want a superclass to handle all standard behavior related to the processing of a set of products, but defer the creation of the proeucts to contrete subclasses</li>
+<li>Intent: define an interface for creating objects, but let subclasses decide which class to instantiate at runtime.</li>
+</ul>
+</li>
+<li><strong>Adapter</strong><ul>
+<li>A client has a strong coupling to a legacy component which may be replaced</li>
+<li>Intent: Convert the interface of a legacy class into a different interface expected by the client so that the client and legacy class work together with any changes to the client or the legacy class.</li>
+</ul>
+</li>
+<li><strong>Inversion of Control</strong> (IoC) is used to invert different kinds of controls in object-oriented design to achieve loose coupling. Here, controls refer to any additional responsibilities a class has, other than its main responsibility. This include control over the flow of an application, and control over the flow of an object creation or dependent object creation and binding.</li>
+</ul>
+<blockquote>
+<p>IoC is all about inverting the control. To explain this in layman’s terms, suppose you drive a car to your work place. This means you control the car. The IoC principle suggests to invert the control, meaning that instead of driving the car yourself, you hire a cab, where another person will drive the car. Thus, this is called inversion of the control - from you to the cab driver. You don’t have to drive a car yourself and you can let the driver do the driving so that you can focus on your main work.</p>
+</blockquote>
+<blockquote>
+<p>The IoC principle helps in designing loosely coupled classes which make them testable, maintainable and extensible.</p>
+</blockquote>
+<ul>
+<li><strong>Dependency Injection</strong> (DI) is a design pattern used to implement IoC (Inversion of Control). It allows the creation of dependent objects outside of a class and provides those objects to a class through different ways. Using DI, we move the creation and binding of the dependent objects outside of the class that depends on them.</li>
+</ul>
+<h2 id="Presentation-Skills"><a href="#Presentation-Skills" class="headerlink" title="Presentation Skills"></a><a target="_blank" rel="noopener" href="https://www.assertion-evidence.com/">Presentation Skills</a></h2><ul>
+<li><strong>Assertion-Evidence</strong> is a style of presentation in which a sentence headline states the main message of the slide—this is the “assertion” part. The assertion is then supported with visual evidence—a photograph, chart, diagram, or video clip. Bulleted lists have no place in this style of presentation.</li>
+<li>Assertion-Evidence talks are comprehended better by audiences and project more confidence from speakers.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Unit-Test/" rel="tag"># Unit Test</a>
+              <a href="/tags/Software-Engineering/" rel="tag"># Software Engineering</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/17/Javascript-notes/" rel="next" title="Javascript notes">
+      Javascript notes <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing"><span class="nav-number">1.</span> <span class="nav-text">Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML"><span class="nav-number">2.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-Diagrams"><span class="nav-number">2.1.</span> <span class="nav-text">Package Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Diagrams"><span class="nav-number">2.2.</span> <span class="nav-text">Class Diagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-diagram"><span class="nav-number">2.3.</span> <span class="nav-text">Deployment diagram,</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOLID-Principle"><span class="nav-number">3.</span> <span class="nav-text">SOLID Principle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Architecture-haiku"><span class="nav-number">4.</span> <span class="nav-text">Architecture haiku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-Partten"><span class="nav-number">5.</span> <span class="nav-text">Design Partten</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presentation-Skills"><span class="nav-number">6.</span> <span class="nav-text">Presentation Skills</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/squareSelfie.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/irvineoy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;irvineoy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wenwen.ouyang@sv.cmu.edu" title="E-Mail → mailto:wenwen.ouyang@sv.cmu.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://irvineoy.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://irvineoy.github.com/2020/07/14/Software-Engineering/";
+    this.page.identifier = "2020/07/14/Software-Engineering/";
+    this.page.title = "Software Engineering";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://irvineoy.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

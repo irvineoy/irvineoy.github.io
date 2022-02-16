@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"irvineoy.github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Ouyang&#39;s Blog">
+<meta property="og:url" content="https://irvineoy.github.com/page/2/index.html">
+<meta property="og:site_name" content="Ouyang&#39;s Blog">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://irvineoy.github.com/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Ouyang's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ouyang's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Working on ML Infra</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/03/07/Docker-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/07/Docker-notes/" class="post-title-link" itemprop="url">Docker notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-08 01:52:23" itemprop="dateCreated datePublished" datetime="2021-03-08T01:52:23+08:00">2021-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-16 11:49:36" itemprop="dateModified" datetime="2022-02-16T11:49:36+08:00">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/03/07/Docker-notes/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/07/Docker-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Run-and-exec"><a href="#Run-and-exec" class="headerlink" title="Run and exec"></a>Run and exec</h3><ul>
+<li>docker run --ipc&#x3D;host --gpus all --entrypoint&#x3D;&#x2F;bin&#x2F;bash -it -d -v &#x2F;home&#x2F;name:&#x2F;home&#x2F;name -e TZ&#x3D;Asia&#x2F;Beijing --name ouyang tensorflow&#x2F;tensorflow:2.4.1-gpu</li>
+<li>run flags:<ul>
+<li>--pid&#x3D;host: Use it if you want your container to share the host’s process namespace, basically allowing processes within the container to see all of the processes on the system.</li>
+<li>--ipc&#x3D;private|shareable|host|container:name-or-id: IPC namespace provides separation of named shared memory segments, semaphores and message queues. Shared memory segments is commenly used by databases and C&#x2F;OpenMPI, C++&#x2F;using boost libraries and etc.</li>
+</ul>
+</li>
+<li>docker exec -it ${container_name} &#x2F;bin&#x2F;bash</li>
+<li>docker exec -it -w &#x2F;home&#x2F;name ouyang sh -c “tmux a” &#x2F;bin&#x2F;bash</li>
+</ul>
+<h3 id="System"><a href="#System" class="headerlink" title="System"></a>System</h3><ul>
+<li>docker system df</li>
+<li>docker system df -v</li>
+<li>sudo service docker start&#x2F;stop</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/07/Docker-notes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/02/23/TensorFlow-HashTable-Operator-Source-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/23/TensorFlow-HashTable-Operator-Source-note/" class="post-title-link" itemprop="url">TensorFlow HashTable Operator Source note</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-24 13:29:10" itemprop="dateCreated datePublished" datetime="2021-02-24T13:29:10+08:00">2021-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-16 11:49:36" itemprop="dateModified" datetime="2022-02-16T11:49:36+08:00">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/02/23/TensorFlow-HashTable-Operator-Source-note/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/23/TensorFlow-HashTable-Operator-Source-note/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Structure-of-TensorFlow-HashTable-source-code"><a href="#Structure-of-TensorFlow-HashTable-source-code" class="headerlink" title="Structure of TensorFlow HashTable source code"></a>Structure of TensorFlow HashTable source code</h2><h3 id="core-x2F-kernels-x2F-lookup-table-op-h"><a href="#core-x2F-kernels-x2F-lookup-table-op-h" class="headerlink" title="core&#x2F;kernels&#x2F;lookup_table_op.h"></a>core&#x2F;kernels&#x2F;lookup_table_op.h</h3><ul>
+<li><p>class LookupTableOp: </p>
+<ul>
+<li>This class inherits from the OpKernel class and supports different table implementations specified by the <strong>Container</strong> template. </li>
+<li>It has a member <code>PersistentTensor table_handle_</code>. This member is stored in the OpKernelContext by <code>ctx-&gt;allocate_persistent</code>.</li>
+</ul>
+</li>
+<li><p><strong>Container</strong> must be inherited from LookupInterface. Container example: MutableDenseHashTable, MutableHashTableOfTensors and etc. </p>
+</li>
+<li><p>class HashTable: This class inherits from InitializableLookupTable class and wraps an flat_hash_map, where the key and value data type is specified. Once the table is marked as initialized it becomes read-only.</p>
+</li>
+</ul>
+<h3 id="core-x2F-kernels-x2F-lookup-table-op-cc"><a href="#core-x2F-kernels-x2F-lookup-table-op-cc" class="headerlink" title="core&#x2F;kernels&#x2F;lookup_table_op.cc"></a>core&#x2F;kernels&#x2F;lookup_table_op.cc</h3><ul>
+<li><p>LookupTableOpKernel: This class inherits from the OpKernel.</p>
+</li>
+<li><p>It will make sure the table_handle_ will be the first input for ops such as <code>LookupTableFind</code>, <code>LookupTableInsert</code>, etc. </p>
+</li>
+<li><p>This class will be inherited by operations like Remove, Insert, Find, Size, Export, Import and etc. For example:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LookupTableOpKernel</span> : <span class="keyword">public</span> OpKernel;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LookupTableFindOp</span> : <span class="keyword">public</span> LookupTableOpKernel;</span><br><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;LookupTableFindV2&quot;</span>).LookupTableFindOp);</span><br></pre></td></tr></table></figure></li>
+<li><p>Here are some examples of hashtable kernel builder:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;HashTableV2&quot;</span>), LookupTableOp&lt;lookup::HashTable&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;MutableHashTableV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfScalars&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;MutableHashTableOfTensorsV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfTensors&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/23/TensorFlow-HashTable-Operator-Source-note/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/31/CMake-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/31/CMake-notes/" class="post-title-link" itemprop="url">CMake notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-01 07:51:14" itemprop="dateCreated datePublished" datetime="2021-02-01T07:51:14+08:00">2021-02-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-16 11:49:36" itemprop="dateModified" datetime="2022-02-16T11:49:36+08:00">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Languages/" itemprop="url" rel="index"><span itemprop="name">Languages</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/01/31/CMake-notes/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/31/CMake-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Why-“file-GLOB-xxx-”-is-evil"><a href="#Why-“file-GLOB-xxx-”-is-evil" class="headerlink" title="Why “file(GLOB xxx)” is evil"></a>Why “file(GLOB xxx)” is evil</h3><ul>
+<li>It will cause inconspicuous problem during teamwork. </li>
+<li>A adds a new file and does not change CMakeLists.txt</li>
+<li>B does a git pull, and since there have been no modifications to the CMakeLists.txt, CMake isn’t run again and B causes linker errors when compiling.</li>
+<li>Reference: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/32411963/why-is-cmake-file-glob-evil">https://stackoverflow.com/questions/32411963/why-is-cmake-file-glob-evil</a></li>
+</ul>
+<h3 id="About-find-package"><a href="#About-find-package" class="headerlink" title="About find_package"></a>About find_package</h3><ul>
+<li><p>Check local modules: cmake –help-module-list</p>
+</li>
+<li><p>Manual for a specific module: cmake –help-module FindCUDA</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/31/CMake-notes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/14/Git-Cheatsheet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/14/Git-Cheatsheet/" class="post-title-link" itemprop="url">Git Cheatsheet</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-15 02:37:53" itemprop="dateCreated datePublished" datetime="2021-01-15T02:37:53+08:00">2021-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-16 11:49:36" itemprop="dateModified" datetime="2022-02-16T11:49:36+08:00">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/01/14/Git-Cheatsheet/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/14/Git-Cheatsheet/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Good-git-resources"><a href="#Good-git-resources" class="headerlink" title="Good git resources"></a>Good git resources</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs">https://git-scm.com/docs</a></li>
+</ul>
+<h3 id="Git-Move-files-from-one-repository-to-another-while-preserving-git-history"><a href="#Git-Move-files-from-one-repository-to-another-while-preserving-git-history" class="headerlink" title="Git Move files from one repository to another while preserving git history"></a>Git Move files from one repository to another while preserving git history</h3><ol>
+<li>mkdir merge_repo &amp;&amp; cd merge_repo</li>
+<li>git clone --branch master --origin origin --progress -v git@github:xxx&#x2F;projectA.git</li>
+<li>cd projectA</li>
+<li>git remote rm origin </li>
+<li>git filter-branch --subdirectory-filter subfolder&#x2F;FOLDER_TO_KEEP -- --all</li>
+<li>git reset --hard &amp;&amp; git gc --aggressive &amp;&amp; git prune &amp;&amp; git clean -fd</li>
+<li>(optional) mkdir anotherfolder &amp;&amp; mv * anotherfolder &amp;&amp; git add . &amp;&amp; git commit</li>
+<li>cd .. </li>
+<li>git clone &lt;git repository B url&gt; projectB</li>
+<li>cd projectB</li>
+<li>git remote add repoA ..&#x2F;projectA</li>
+<li>git pull repoA master --allow-unrelated-histories</li>
+<li>git remote rm repoA</li>
+<li>git push</li>
+</ol>
+<ul>
+<li>reference: <a target="_blank" rel="noopener" href="https://medium.com/@ayushya/move-directory-from-one-repository-to-another-preserving-git-history-d210fa049d4b">https://medium.com/@ayushya/move-directory-from-one-repository-to-another-preserving-git-history-d210fa049d4b</a></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/14/Git-Cheatsheet/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/01/09/Tools-cheatsheet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/Tools-cheatsheet/" class="post-title-link" itemprop="url">Tools cheatsheet</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-10 06:48:30" itemprop="dateCreated datePublished" datetime="2021-01-10T06:48:30+08:00">2021-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-16 11:49:36" itemprop="dateModified" datetime="2022-02-16T11:49:36+08:00">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/01/09/Tools-cheatsheet/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/09/Tools-cheatsheet/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="CI-clang-and-yapf"><a href="#CI-clang-and-yapf" class="headerlink" title="CI: clang and yapf"></a>CI: clang and yapf</h3><ul>
+<li>clang-format -style&#x3D;file -i tensorflow&#x2F;core&#x2F;kernels&#x2F;ResourceSparseApplyAdagradV2.*</li>
+<li>yapf -i --style pep8 tensorflow&#x2F;python&#x2F;test_abs.py</li>
+<li>cpplint --linelength&#x3D;80 --counting&#x3D;detailed --filter&#x3D;-build&#x2F;namespaces --root&#x3D;src $(find src&#x2F;pytorch_ops -name “<em>.h” -or -name “</em>.cc”)</li>
+<li>cpplint --linelength&#x3D;80 --counting&#x3D;detailed --root&#x3D;src $(find src -path “src&#x2F;pytorch_ops” -prune -name “<em>.h” -or -name “</em>.cc”)</li>
+</ul>
+<h3 id="GDB-and-nm"><a href="#GDB-and-nm" class="headerlink" title="GDB and nm"></a>GDB and nm</h3><ul>
+<li>nm -D BINARY &#x2F;&#x2F; Only show BINARY (object file, static&#x2F;dynamic library, executable) dynamic section’s symbol: T&#x2F;t means golbal&#x2F;local symbol. U means undefined symbol.</li>
+<li>nm -Du BINARY &#x2F;&#x2F; Only show undefined symbol</li>
+<li>c++filt &#x2F;&#x2F; Transform symbols in so to human readable form</li>
+</ul>
+<h3 id="Performance-Monitoring-Tools"><a href="#Performance-Monitoring-Tools" class="headerlink" title="Performance Monitoring Tools"></a>Performance Monitoring Tools</h3><ul>
+<li>Program Optimization: Gprof, Perf, VTune</li>
+<li>Program Debugging: Valgrind, Sanitizers</li>
+<li>Advanced Analysis: Pin, Contech
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/09/Tools-cheatsheet/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/squareSelfie.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/irvineoy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;irvineoy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wenwen.ouyang@sv.cmu.edu" title="E-Mail → mailto:wenwen.ouyang@sv.cmu.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://irvineoy.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+    </div>
+</body>
+</html>

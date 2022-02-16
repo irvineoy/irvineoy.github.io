@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"irvineoy.github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Structure of TensorFlow HashTable source codecore&#x2F;kernels&#x2F;lookup_table_op.h class LookupTableOp:   This class inherits from the OpKernel class and supports different table implementations sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow HashTable Operator Source note">
+<meta property="og:url" content="https://irvineoy.github.com/2021/02/23/TensorFlow-HashTable-Operator-Source-note/index.html">
+<meta property="og:site_name" content="Ouyang&#39;s Blog">
+<meta property="og:description" content="Structure of TensorFlow HashTable source codecore&#x2F;kernels&#x2F;lookup_table_op.h class LookupTableOp:   This class inherits from the OpKernel class and supports different table implementations sp">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-24T05:29:10.000Z">
+<meta property="article:modified_time" content="2022-02-16T03:49:36.090Z">
+<meta property="article:tag" content="TensorFlow">
+<meta property="article:tag" content="HashTable">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://irvineoy.github.com/2021/02/23/TensorFlow-HashTable-Operator-Source-note/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>TensorFlow HashTable Operator Source note | Ouyang's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ouyang's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Working on ML Infra</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://irvineoy.github.com/2021/02/23/TensorFlow-HashTable-Operator-Source-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/squareSelfie.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ouyang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TensorFlow HashTable Operator Source note
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-24 13:29:10" itemprop="dateCreated datePublished" datetime="2021-02-24T13:29:10+08:00">2021-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-16 11:49:36" itemprop="dateModified" datetime="2022-02-16T11:49:36+08:00">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/02/23/TensorFlow-HashTable-Operator-Source-note/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/23/TensorFlow-HashTable-Operator-Source-note/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Structure-of-TensorFlow-HashTable-source-code"><a href="#Structure-of-TensorFlow-HashTable-source-code" class="headerlink" title="Structure of TensorFlow HashTable source code"></a>Structure of TensorFlow HashTable source code</h2><h3 id="core-x2F-kernels-x2F-lookup-table-op-h"><a href="#core-x2F-kernels-x2F-lookup-table-op-h" class="headerlink" title="core&#x2F;kernels&#x2F;lookup_table_op.h"></a>core&#x2F;kernels&#x2F;lookup_table_op.h</h3><ul>
+<li><p>class LookupTableOp: </p>
+<ul>
+<li>This class inherits from the OpKernel class and supports different table implementations specified by the <strong>Container</strong> template. </li>
+<li>It has a member <code>PersistentTensor table_handle_</code>. This member is stored in the OpKernelContext by <code>ctx-&gt;allocate_persistent</code>.</li>
+</ul>
+</li>
+<li><p><strong>Container</strong> must be inherited from LookupInterface. Container example: MutableDenseHashTable, MutableHashTableOfTensors and etc. </p>
+</li>
+<li><p>class HashTable: This class inherits from InitializableLookupTable class and wraps an flat_hash_map, where the key and value data type is specified. Once the table is marked as initialized it becomes read-only.</p>
+</li>
+</ul>
+<h3 id="core-x2F-kernels-x2F-lookup-table-op-cc"><a href="#core-x2F-kernels-x2F-lookup-table-op-cc" class="headerlink" title="core&#x2F;kernels&#x2F;lookup_table_op.cc"></a>core&#x2F;kernels&#x2F;lookup_table_op.cc</h3><ul>
+<li><p>LookupTableOpKernel: This class inherits from the OpKernel.</p>
+</li>
+<li><p>It will make sure the table_handle_ will be the first input for ops such as <code>LookupTableFind</code>, <code>LookupTableInsert</code>, etc. </p>
+</li>
+<li><p>This class will be inherited by operations like Remove, Insert, Find, Size, Export, Import and etc. For example:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LookupTableOpKernel</span> : <span class="keyword">public</span> OpKernel;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LookupTableFindOp</span> : <span class="keyword">public</span> LookupTableOpKernel;</span><br><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;LookupTableFindV2&quot;</span>).LookupTableFindOp);</span><br></pre></td></tr></table></figure></li>
+<li><p>Here are some examples of hashtable kernel builder:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;HashTableV2&quot;</span>), LookupTableOp&lt;lookup::HashTable&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;MutableHashTableV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfScalars&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br><span class="line"><span class="built_in">REGISTER_KERNEL_BUILDER</span>(<span class="built_in">Name</span>(<span class="string">&quot;MutableHashTableOfTensorsV2&quot;</span>), LookupTableOp&lt;lookup::MutableHashTableOfTensors&lt;key_dtype, value_dtype&gt;, key_dtype, value_dtype&gt;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<span id="more"></span>
+
+<h3 id="core-x2F-ops-x2F-lookup-ops-cc"><a href="#core-x2F-ops-x2F-lookup-ops-cc" class="headerlink" title="core&#x2F;ops&#x2F;lookup_ops.cc"></a>core&#x2F;ops&#x2F;lookup_ops.cc</h3><ul>
+<li>In this file, different kinds of HashTable ops will be registered:<ul>
+<li>HashTable</li>
+<li>MutableHashTable</li>
+<li>MutableHashTableofTensors</li>
+<li>MutableDenseHashTable</li>
+</ul>
+</li>
+<li>Those ops will output a table_handle which could be Ref(string) or resource corresponding to TensorFlow 1.X and TensorFlow 2.X</li>
+<li>All of those ops are set by using <code>SetIsStateful()</code></li>
+<li>The following is an example:  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">REGISTER_OP</span>(<span class="string">&quot;MutableHashTableOfTensorsV2&quot;</span>)</span><br><span class="line">    .<span class="built_in">Output</span>(<span class="string">&quot;table_handle: resource&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;container: string = &#x27;&#x27;&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;shared_name: string = &#x27;&#x27;&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;use_node_name_sharing: bool = false&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;key_dtype: type&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;value_dtype: type&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;value_shape: shape = &#123;&#125;&quot;</span>)</span><br><span class="line">    .<span class="built_in">SetIsStateful</span>()</span><br><span class="line">    .<span class="built_in">SetShapeFn</span>([](InferenceContext* c) &#123;</span><br><span class="line">    PartialTensorShape value_p;</span><br><span class="line">    <span class="built_in">TF_RETURN_IF_ERROR</span>(c-&gt;<span class="built_in">GetAttr</span>(<span class="string">&quot;value_shape&quot;</span>, &amp;value_p));</span><br><span class="line">    ShapeHandle value_s;</span><br><span class="line">    <span class="built_in">TF_RETURN_IF_ERROR</span>(c-&gt;<span class="built_in">MakeShapeFromPartialTensorShape</span>(value_p, &amp;value_s));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">MutableHashTableShape</span>(c, <span class="comment">/*key=*/</span>c-&gt;<span class="built_in">Scalar</span>(), <span class="comment">/*value=*/</span>value_s);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<ul>
+<li><p>Also different kinds of HashTable’s operation ops will be registered in this file:</p>
+<ul>
+<li>LookupTableFind</li>
+<li>LookupTableInsert</li>
+<li>LookupTableRemove</li>
+<li>LookupTableSize</li>
+<li>LookupTableExport</li>
+<li>LookupTableImport</li>
+</ul>
+</li>
+<li><p>Those ops will take table_handle as the first input.</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">REGISTER_OP</span>(<span class="string">&quot;LookupTableInsertV2&quot;</span>)</span><br><span class="line">    .<span class="built_in">Input</span>(<span class="string">&quot;table_handle: resource&quot;</span>)</span><br><span class="line">    .<span class="built_in">Input</span>(<span class="string">&quot;keys: Tin&quot;</span>)</span><br><span class="line">    .<span class="built_in">Input</span>(<span class="string">&quot;values: Tout&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;Tin: type&quot;</span>)</span><br><span class="line">    .<span class="built_in">Attr</span>(<span class="string">&quot;Tout: type&quot;</span>)</span><br><span class="line">    .<span class="built_in">SetShapeFn</span>([](InferenceContext* c) &#123;</span><br><span class="line">    ShapeHandle handle;</span><br><span class="line">    <span class="built_in">TF_RETURN_IF_ERROR</span>(c-&gt;<span class="built_in">WithRank</span>(c-&gt;<span class="built_in">input</span>(<span class="number">0</span>), <span class="number">0</span>, &amp;handle));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> Validate keys and values shape.</span></span><br><span class="line">    <span class="keyword">return</span> Status::<span class="built_in">OK</span>();</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="built_in">REGISTER_OP</span>(<span class="string">&quot;LookupTableSizeV2&quot;</span>)</span><br><span class="line"><span class="built_in">REGISTER_OP</span>(<span class="string">&quot;LookupTableFindV2&quot;</span>)</span><br><span class="line"><span class="built_in">REGISTER_OP</span>(<span class="string">&quot;LookupTableRemoveV2&quot;</span>)</span><br><span class="line"><span class="built_in">REGISTER_OP</span>(<span class="string">&quot;LookupTableExportV2&quot;</span>)</span><br><span class="line"><span class="built_in">REGISTER_OP</span>(<span class="string">&quot;LookupTableImportV2&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Nvidia-HashTable-Kernel-Builder-Implementation-Details"><a href="#Nvidia-HashTable-Kernel-Builder-Implementation-Details" class="headerlink" title="Nvidia HashTable Kernel Builder Implementation Details"></a>Nvidia HashTable Kernel Builder Implementation Details</h3><ul>
+<li>Here is an example of getting scalar or vector from Op’s Tensor input. To get element number of keys and get matrix from key and value.<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> int64 num_elements = (key.<span class="built_in">dims</span>() == <span class="number">0</span>) ? <span class="number">1</span> : key.<span class="built_in">dim_size</span>(<span class="number">0</span>);</span><br><span class="line"><span class="type">const</span> int64 value_size = value_shape_.<span class="built_in">num_elements</span>();</span><br><span class="line"><span class="type">const</span> int64 key_size = key_shape_.<span class="built_in">num_elements</span>();</span><br><span class="line"><span class="type">const</span> <span class="keyword">auto</span> key_matrix = key.<span class="built_in">shaped</span>&lt;K, <span class="number">2</span>&gt;(&#123;num_elements, key_size&#125;);</span><br><span class="line"><span class="keyword">auto</span> value_matrix = value.<span class="built_in">shaped</span>&lt;V, <span class="number">2</span>&gt;(&#123;num_elements, value_size&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DoInsert</span><span class="params">(<span class="type">bool</span> clear, <span class="type">const</span> Tensor&amp; keys, <span class="type">const</span> Tensor&amp; values)</span> </span>&#123;</span><br><span class="line">    <span class="type">const</span> <span class="keyword">auto</span> key_values = keys.<span class="built_in">flat</span>&lt;K&gt;();</span><br><span class="line">    <span class="type">const</span> <span class="keyword">auto</span> value_values = values.<span class="built_in">flat_inner_dims</span>&lt;V, <span class="number">2</span>&gt;();</span><br><span class="line">    int64 value_dim = value_shape_.<span class="built_in">dim_size</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">mutex_lock <span class="title">l</span><span class="params">(mu_)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int64 i = <span class="number">0</span>; i &lt; key_values.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">        ValueArray value_vec;</span><br><span class="line">        <span class="keyword">for</span> (int64 j = <span class="number">0</span>; j &lt; value_dim; j++) &#123;</span><br><span class="line">            V value = <span class="built_in">value_values</span>(i, j);</span><br><span class="line">            value_vec.<span class="built_in">push_back</span>(value);</span><br><span class="line">        &#125;</span><br><span class="line">        gtl::<span class="built_in">InsertOrUpdate</span>(&amp;table_, <span class="built_in">SubtleMustCopyIfIntegral</span>(<span class="built_in">key_values</span>(i)),</span><br><span class="line">                            value_vec);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Status::<span class="built_in">OK</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="TBD"><a href="#TBD" class="headerlink" title="TBD"></a>TBD</h2><ul>
+<li>Need understand LookupTableOp::Compute (core&#x2F;kernels&#x2F;lookup_table_op.h)</li>
+<li>core&#x2F;util&#x2F;gpu_kernel_helper.h for example of computing block count</li>
+</ul>
+<h3 id="core-x2F-framework-x2F-lookup-interface-h"><a href="#core-x2F-framework-x2F-lookup-interface-h" class="headerlink" title="core&#x2F;framework&#x2F;lookup_interface.h"></a>core&#x2F;framework&#x2F;lookup_interface.h</h3><ul>
+<li>class LookupInterface: public ResourceBase</li>
+<li>Function: performs batch lookups</li>
+</ul>
+<h3 id="Multi-GPU-Single-Thread-Example-cu"><a href="#Multi-GPU-Single-Thread-Example-cu" class="headerlink" title="Multi_GPU Single_Thread_Example.cu"></a>Multi_GPU Single_Thread_Example.cu</h3><ul>
+<li><p>Defination:<br>  using Table_ &#x3D; nv::MultiGpuHashTable&lt;key_type, val_type, ModPolicy<key_type>&gt;;<br>  auto table &#x3D; new Table_(num_gpu * len &#x2F; load_factor, gpu_id, num_gpu); </p>
+</li>
+<li><p>Methods: </p>
+<ul>
+<li>Example: void insert(const KeyType* d_keys, const ValType* d_vals, size_t len, Stream_event_resource&amp; s_e_resource);</li>
+<li>insert, set, get, update</li>
+<li>insert_from_cpu, dump_to_cpu, dump_to_gpu, </li>
+<li>get_size, clear, remove</li>
+<li>stream_event_recource_create, stream_event_resource_destroy</li>
+</ul>
+</li>
+<li><p>Methods Argument:<br>  KeyType* keys<br>  ValType* vals<br>  size_t* len<br>  Stream_event_resource&amp; s_e_resource</p>
+</li>
+</ul>
+<h3 id="Nvidia-Muti-GPU-Hashtable-Class-Design"><a href="#Nvidia-Muti-GPU-Hashtable-Class-Design" class="headerlink" title="Nvidia Muti-GPU Hashtable Class Design"></a>Nvidia Muti-GPU Hashtable Class Design</h3><ul>
+<li>class name: MutableNvidiaHashTableOfScalars</li>
+<li>inherit: LookupInterface or Opkernal or Hashtable</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+              <a href="/tags/HashTable/" rel="tag"># HashTable</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/31/CMake-notes/" rel="prev" title="CMake notes">
+      <i class="fa fa-chevron-left"></i> CMake notes
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/07/Docker-notes/" rel="next" title="Docker notes">
+      Docker notes <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Structure-of-TensorFlow-HashTable-source-code"><span class="nav-number">1.</span> <span class="nav-text">Structure of TensorFlow HashTable source code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#core-x2F-kernels-x2F-lookup-table-op-h"><span class="nav-number">1.1.</span> <span class="nav-text">core&#x2F;kernels&#x2F;lookup_table_op.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#core-x2F-kernels-x2F-lookup-table-op-cc"><span class="nav-number">1.2.</span> <span class="nav-text">core&#x2F;kernels&#x2F;lookup_table_op.cc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#core-x2F-ops-x2F-lookup-ops-cc"><span class="nav-number">1.3.</span> <span class="nav-text">core&#x2F;ops&#x2F;lookup_ops.cc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nvidia-HashTable-Kernel-Builder-Implementation-Details"><span class="nav-number">1.4.</span> <span class="nav-text">Nvidia HashTable Kernel Builder Implementation Details</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TBD"><span class="nav-number">2.</span> <span class="nav-text">TBD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#core-x2F-framework-x2F-lookup-interface-h"><span class="nav-number">2.1.</span> <span class="nav-text">core&#x2F;framework&#x2F;lookup_interface.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-GPU-Single-Thread-Example-cu"><span class="nav-number">2.2.</span> <span class="nav-text">Multi_GPU Single_Thread_Example.cu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nvidia-Muti-GPU-Hashtable-Class-Design"><span class="nav-number">2.3.</span> <span class="nav-text">Nvidia Muti-GPU Hashtable Class Design</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/squareSelfie.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/irvineoy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;irvineoy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wenwen.ouyang@sv.cmu.edu" title="E-Mail → mailto:wenwen.ouyang@sv.cmu.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://irvineoy.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://irvineoy.github.com/2021/02/23/TensorFlow-HashTable-Operator-Source-note/";
+    this.page.identifier = "2021/02/23/TensorFlow-HashTable-Operator-Source-note/";
+    this.page.title = "TensorFlow HashTable Operator Source note";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://irvineoy.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>
